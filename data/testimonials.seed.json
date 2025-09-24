@@ -1,0 +1,29 @@
+[
+  {
+    "id": "maya-lee",
+    "name": "Maya Lee",
+    "role": "Founder, Form & Fold",
+    "suburb": "Fitzroy",
+    "quote": "We doubled qualified enquiries within a month of listing on the directory.",
+    "profileUrl": "https://formandfold.com.au/",
+    "rating": 5
+  },
+  {
+    "id": "andre-silva",
+    "name": "André Silva",
+    "role": "Director, Atelier South",
+    "suburb": "Collingwood",
+    "quote": "The lead capture workflow plugged directly into our HubSpot pipeline.",
+    "profileUrl": "https://ateliersouth.studio/",
+    "rating": 4.8
+  },
+  {
+    "id": "kira-nolan",
+    "name": "Kira Nolan",
+    "role": "Producer, Northern Light",
+    "suburb": "Brunswick",
+    "quote": "Verified designers meant we could launch a new venue identity in six weeks.",
+    "profileUrl": "https://northernlight.events/",
+    "rating": 5
+  }
+]

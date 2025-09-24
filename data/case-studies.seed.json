@@ -1,0 +1,32 @@
+[
+  {
+    "id": "cs-001",
+    "slug": "brand-refresh-fitzroy",
+    "title": "Brand refresh for a Fitzroy roastery",
+    "coverUrl": "/og-template.png",
+    "excerpt": "Positioning and visual identity overhaul for a fast-growing cafe collective.",
+    "tags": ["Brand", "Identity"],
+    "designerSlug": "brandwell",
+    "designerName": "Brandwell"
+  },
+  {
+    "id": "cs-002",
+    "slug": "immersive-gallery-launch",
+    "title": "Immersive gallery launch experience",
+    "coverUrl": "/og-template.png",
+    "excerpt": "Spatial storytelling and projection mapping for a Northside opening night.",
+    "tags": ["Experiential", "Spatial"],
+    "designerSlug": "lumen-assembly",
+    "designerName": "Lumen Assembly"
+  },
+  {
+    "id": "cs-003",
+    "slug": "sustainable-hotel-digital",
+    "title": "Digital journey for a sustainable hotel group",
+    "coverUrl": "/og-template.png",
+    "excerpt": "Booking flow and membership platform built for a carbon-neutral brand.",
+    "tags": ["Digital", "UX"],
+    "designerSlug": "luminary",
+    "designerName": "Luminary"
+  }
+]

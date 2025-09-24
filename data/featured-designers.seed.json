@@ -1,0 +1,52 @@
+[
+  {
+    "id": "chromatix",
+    "slug": "chromatix",
+    "name": "Chromatix",
+    "services": ["Web Design", "UX/UI", "Web Development", "Conversion Strategy"],
+    "location": "Camberwell",
+    "href": "https://www.chromatix.com.au/",
+    "bio": "Melbourne-born web-only specialists delivering conversion-led interfaces.",
+    "rating": 4.9
+  },
+  {
+    "id": "luminary",
+    "slug": "luminary",
+    "name": "Luminary",
+    "services": ["Digital Strategy", "UX", "Digital Design", "Web Development"],
+    "location": "Melbourne CBD",
+    "href": "https://www.luminary.com/",
+    "bio": "Full-service digital agency supporting enterprise experience platforms.",
+    "rating": 4.8
+  },
+  {
+    "id": "brandwell",
+    "slug": "brandwell",
+    "name": "Brandwell",
+    "services": ["Brand Identity", "Strategy", "Packaging", "Web"],
+    "location": "Collingwood",
+    "href": "https://brandwell.com.au/",
+    "bio": "Award-winning branding studio shaping bold retail identities.",
+    "rating": 4.7
+  },
+  {
+    "id": "emote-digital",
+    "slug": "emote-digital",
+    "name": "Emote Digital",
+    "services": ["Brand & Digital", "UX", "eCommerce", "Marketing"],
+    "location": "Hawthorn",
+    "href": "https://www.emotedigital.com.au/",
+    "bio": "Results-focused digital agency blending creative with performance.",
+    "rating": 4.7
+  },
+  {
+    "id": "willow-blake",
+    "slug": "willow-blake",
+    "name": "Willow & Blake",
+    "services": ["Brand Strategy", "Visual Identity", "Brand Voice", "Digital"],
+    "location": "Richmond",
+    "href": "https://willowandblake.com/",
+    "bio": "Creative branding agency known for voice-first storytelling.",
+    "rating": 4.6
+  }
+]
