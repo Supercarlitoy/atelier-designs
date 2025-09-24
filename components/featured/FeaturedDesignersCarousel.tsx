@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
@@ -230,10 +231,13 @@ function FeaturedDesignerCard({ designer, index, onContact }: CardProps) {
           ref={imageRef}
           className="relative h-56 overflow-hidden bg-[#d8d9da]"
         >
-          <img
-            src="/og-template.png"
-            alt={`Placeholder project collage for ${designer.name}`}
+          <Image
+            src={designer.coverImage ?? "/og-template.png"}
+            alt={designer.imageAlt ?? `${designer.name} studio showcase`}
+            fill
+            sizes="(min-width: 1280px) 360px, (min-width: 768px) 45vw, 85vw"
             className="h-full w-full object-cover"
+            priority={index < 2}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent" />
         </div>
@@ -289,18 +293,18 @@ export default function FeaturedDesignersCarousel() {
   );
 
   return (
-    <section id="featured" aria-labelledby="featured-heading" className="px-6 py-24 text-black">
+    <section id="featured" aria-labelledby="featured-heading" className="bg-white px-6 pb-24 pt-16 text-black md:px-12">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <div className="mb-14 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="text-xs uppercase tracking-[0.3rem] text-black/50">Featured designers</p>
-            <h2 id="featured-heading" className="text-3xl font-semibold md:text-4xl">
+            <p className="text-[11px] uppercase tracking-[0.45rem] text-black/45">Featured designers</p>
+            <h2 id="featured-heading" className="mt-2 text-[34px] font-semibold tracking-[-0.01em] md:text-[40px]">
               Curated Melbourne studios in focus.
             </h2>
           </div>
           <a
             href="/designers"
-            className="text-xs uppercase tracking-[0.3rem] text-black underline"
+            className="text-[11px] uppercase tracking-[0.4rem] text-black/70 underline underline-offset-8"
           >
             View all →
           </a>

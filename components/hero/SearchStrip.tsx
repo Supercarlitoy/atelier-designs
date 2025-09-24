@@ -67,17 +67,17 @@ export default function SearchStrip() {
   return (
     <section
       id="search"
-      className="border-t border-black/10 bg-[#000000] py-6 text-black"
+      className="border-t border-black bg-[#101010] py-8 text-black"
       aria-label="Search designers"
     >
       <form
         action="/search"
         method="get"
         onSubmit={handleSubmit}
-        className="mx-auto flex max-w-5xl flex-col gap-3 px-6 text-sm md:flex-row md:items-center"
+        className="mx-auto flex w-full max-w-5xl flex-col items-center gap-4 px-6 text-sm md:flex-row md:gap-6"
       >
         <div
-          className="relative flex-1"
+          className="relative flex-1 w-full"
           role="combobox"
           aria-controls={listboxId}
           aria-expanded={suggestions.length > 0}
@@ -95,21 +95,21 @@ export default function SearchStrip() {
             aria-controls={listboxId}
             aria-autocomplete="list"
             placeholder="Try: brand identity in Fitzroy"
-            className="h-12 w-full rounded-full border border-white/10 bg-[#e6e6e6] px-5 text-base text-[#000000] placeholder-[#bdbdbd] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[var(--focus)]"
+            className="h-16 w-full rounded-full border border-white/15 bg-[#dcdcdc] px-7 text-base font-medium text-[#141414] placeholder:text-[#8d8d8d] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-white/70"
             required
           />
           {suggestions.length > 0 ? (
             <ul
               id={listboxId}
               role="listbox"
-              className="absolute left-0 right-0 top-full z-20 mt-2 overflow-hidden rounded-2xl border border-black/10 bg-white shadow-xl"
+              className="absolute left-0 right-0 top-full z-20 mt-3 overflow-hidden rounded-2xl border border-black/10 bg-white shadow-[0_20px_40px_rgba(0,0,0,0.16)]"
             >
               {suggestions.map((suggestion) => (
                 <li key={suggestion.id} role="option" aria-selected={false}>
                   <button
                     type="button"
                     onClick={() => handleSuggestionSelect(suggestion)}
-                    className="flex w-full flex-col items-start gap-1 px-4 py-3 text-left hover:bg-black/5 focus:outline-none focus-visible:bg-black/5"
+                    className="flex w-full flex-col items-start gap-1 px-5 py-3 text-left transition-colors hover:bg-black/5 focus:outline-none focus-visible:bg-black/5"
                   >
                     <span className="font-medium text-black">{suggestion.name}</span>
                     <span className="text-xs text-black/60">
@@ -123,7 +123,7 @@ export default function SearchStrip() {
         </div>
         <button
           type="submit"
-          className="h-12 rounded-full border border-white/10 bg-white px-6 text-sm font-medium uppercase tracking-[0.2rem] text-black focus:outline-none focus:ring-2 focus:ring-[var(--focus)]"
+          className="h-16 rounded-full border border-white/25 bg-white px-10 text-xs font-semibold uppercase tracking-[0.4rem] text-black shadow-[0_18px_32px_rgba(0,0,0,0.2)] focus:outline-none focus:ring-2 focus:ring-white/80"
         >
           Search
         </button>

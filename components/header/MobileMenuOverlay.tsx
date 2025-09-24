@@ -23,7 +23,7 @@ type Props = {
   open: boolean;
   onClose: () => void;
   navLinks: NavLink[];
-  actionLinks: NavLink[];
+  ctaLink: NavLink;
   designers: Designer[];
 };
 
@@ -32,7 +32,7 @@ export default function MobileMenuOverlay({
   open,
   onClose,
   navLinks,
-  actionLinks,
+  ctaLink,
   designers
 }: Props) {
   const overlayRef = useRef<HTMLDivElement>(null);
@@ -124,7 +124,7 @@ export default function MobileMenuOverlay({
       </button>
       <div className="flex h-full animate-slideIn flex-col justify-between p-8">
         <nav aria-label="Mobile Primary" className="space-y-8">
-          {[{ href: "/designers", label: "Designers" }, ...navLinks].map((link) => (
+          {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
@@ -158,20 +158,22 @@ export default function MobileMenuOverlay({
                 </li>
               ))}
             </ul>
+            <a
+              href="/designers"
+              onClick={onClose}
+              className="mt-3 inline-flex items-center text-xs font-semibold uppercase tracking-[0.3rem] text-black underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus)] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+            >
+              View all designers →
+            </a>
           </div>
           <div className="border-t border-[rgba(17,17,17,0.06)] pt-6">
-            <div className="flex flex-wrap gap-4">
-              {actionLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={onClose}
-                  className="rounded-full border border-black/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.2rem] text-black focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus)] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
-                >
-                  {link.label}
-                </a>
-              ))}
-            </div>
+            <a
+              href={ctaLink.href}
+              onClick={onClose}
+              className="block rounded-full bg-black px-6 py-3 text-center text-xs font-semibold uppercase tracking-[0.3rem] text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus)] focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+            >
+              {ctaLink.label}
+            </a>
           </div>
         </div>
       </div>

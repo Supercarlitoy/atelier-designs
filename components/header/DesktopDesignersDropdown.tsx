@@ -95,9 +95,13 @@ export default function DesktopDesignersDropdown({ designers }: Props) {
         aria-expanded={open}
         aria-controls="designers-panel"
         onClick={handleToggle}
-        className="inline-flex items-center gap-2 px-3 py-2 text-sm font-medium uppercase tracking-[0.2rem] text-black hover:text-black/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus)] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+        className="inline-flex items-center gap-2 px-3 py-2 text-xs font-semibold uppercase tracking-[0.35rem] text-black hover:text-black/70 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus)] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
       >
-        Designers <span aria-hidden>▾</span>
+        <span className="flex items-center gap-1" aria-hidden>
+          Designers
+          <span className="text-lg leading-none">•</span>
+        </span>
+        <span className="sr-only">Designers menu</span>
       </button>
       {open ? (
         <div
@@ -105,7 +109,7 @@ export default function DesktopDesignersDropdown({ designers }: Props) {
           id="designers-panel"
           role="listbox"
           aria-labelledby="nav-designers"
-          className="animate-dropdown fixed left-0 right-0 z-50 border-t border-[rgba(17,17,17,0.06)] bg-white shadow-[0_24px_48px_rgba(9,12,20,0.1)]"
+          className="animate-dropdown fixed left-0 right-0 z-50 border-t border-black/10 bg-[#f4f4f4] shadow-[0_32px_60px_rgba(18,18,18,0.08)]"
           style={{ top: "72px" }}
         >
           <div className="mx-auto grid max-w-6xl gap-8 p-12 md:grid-cols-2 lg:grid-cols-3">
@@ -116,7 +120,7 @@ export default function DesktopDesignersDropdown({ designers }: Props) {
                 aria-selected="false"
                 href={designer.href}
                 onClick={() => handleDesignerClick(designer, index)}
-                className="block text-2xl leading-tight text-black hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus)] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+                className="block text-2xl leading-tight text-black transition-colors hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f4f4f4]"
               >
                 {designer.name}
                 <span className="block text-sm text-black/60">

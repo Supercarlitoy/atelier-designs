@@ -66,7 +66,7 @@ export default function HowItWorks() {
   };
 
   return (
-    <section id="how-it-works" aria-labelledby="how-it-works-heading" className="bg-[#f6f6f7] px-6 py-24 text-black">
+    <section id="process" aria-labelledby="how-it-works-heading" className="bg-[#f6f6f7] px-6 py-24 text-black">
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 max-w-3xl">
           <p className="text-xs uppercase tracking-[0.3rem] text-black/50">How it works</p>

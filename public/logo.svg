@@ -1,3 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 24" role="img" aria-label="Melbourne Designers wordmark">
-  <text x="0" y="18" font-family="Arial, sans-serif" font-size="18">Logo</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 80" role="img" aria-label="Atelier Digital Melbourne">
+  <!-- Logo square with border -->
+  <rect x="8" y="12" width="56" height="56" fill="none" stroke="currentColor" stroke-width="2"/>
+  
+  <!-- Letter A -->
+  <path d="M36 20 L28 52 L32 52 L33.5 47 L38.5 47 L40 52 L44 52 L36 20 Z M34.5 43 L36 38 L37.5 43 Z" fill="currentColor"/>
+  
+  <!-- ATELIER DIGITAL text -->
+  <text x="80" y="35" font-family="Arial, sans-serif" font-size="16" font-weight="400" letter-spacing="2px" fill="currentColor">ATELIER DIGITAL</text>
+  
+  <!-- MELBOURNE text -->
+  <text x="80" y="55" font-family="Arial, sans-serif" font-size="14" font-weight="300" letter-spacing="3px" fill="currentColor">MELBOURNE</text>
 </svg>
