@@ -1,0 +1,81 @@
+[
+  {
+    "id": "chromatix",
+    "slug": "chromatix",
+    "name": "Chromatix",
+    "tagline": "Conversion-led web experiences for ambitious Melbourne brands.",
+    "location": "Camberwell",
+    "services": ["Web Design", "UX/UI", "Web Development", "Conversion Strategy"],
+    "website": "https://www.chromatix.com.au/",
+    "email": "studio@chromatix.com.au",
+    "phone": "+61 3 9028 1111",
+    "coverImage": "https://www.chromatix.com.au/wp-content/uploads/2025/02/campaign-creators-iEiUITs149M-unsplash-1800x1200.jpg",
+    "avatarImage": "https://www.chromatix.com.au/wp-content/uploads/2023/06/chromatix-mark.png",
+    "bio": "Chromatix is a specialist team of UX strategists and developers focused exclusively on handcrafted, high-converting digital products.",
+    "social": {
+      "linkedin": "https://www.linkedin.com/company/chromatix/",
+      "instagram": "https://www.instagram.com/chromatix/"
+    },
+    "highlights": [
+      "Over 350 bespoke web builds completed",
+      "Awwwards Special Kudos 2024",
+      "Preferred conversion partner for Victorian Government"
+    ],
+    "portfolio": [
+      {
+        "id": "chromatix-rmit",
+        "title": "RMIT Online",
+        "description": "Redesigned enrolment funnel lifting conversion by 28% in the first quarter.",
+        "image": "https://www.chromatix.com.au/wp-content/uploads/2023/04/rmit-online.png",
+        "url": "https://www.rmit.edu.au/online"
+      },
+      {
+        "id": "chromatix-gorman",
+        "title": "Gorman",
+        "description": "Immersive ecommerce refresh featuring modular storytelling blocks.",
+        "image": "https://www.chromatix.com.au/wp-content/uploads/2023/08/gorman-site.png",
+        "url": "https://gorman.com.au/"
+      }
+    ]
+  },
+  {
+    "id": "luminary",
+    "slug": "luminary",
+    "name": "Luminary",
+    "tagline": "Enterprise digital design and transformation.",
+    "location": "Melbourne CBD",
+    "services": ["Digital Strategy", "UX", "Digital Design", "Web Development"],
+    "website": "https://www.luminary.com/",
+    "email": "hello@luminary.com",
+    "phone": "+61 3 9620 4949",
+    "coverImage": "https://assets-us-01.kc-usercontent.com/90e79cae-25c6-00b5-6f5b-27efe5c250ab/b6a4aaae-9258-4804-bf5f-3d9f04f0ff56/Team%20cover%20photo%202021.png",
+    "avatarImage": "https://assets-us-01.kc-usercontent.com/90e79cae-25c6-00b5-6f5b-27efe5c250ab/05183bbd-b5f6-46ca-8af3-6a8979c0f9b2/luminary-mark.png",
+    "bio": "Luminary partners with large organisations to orchestrate human-centred digital platforms across strategy, design, and technology.",
+    "social": {
+      "linkedin": "https://www.linkedin.com/company/luminary-au/",
+      "instagram": "https://www.instagram.com/luminaryagency/",
+      "twitter": "https://twitter.com/luminarydigital"
+    },
+    "highlights": [
+      "Sitecore Platinum partner",
+      "Certified B Corporation",
+      "Digital transformation partner for World Vision"
+    ],
+    "portfolio": [
+      {
+        "id": "luminary-anz",
+        "title": "ANZ Institutional",
+        "description": "A modular content system enabling rapid campaign deployment across APAC.",
+        "image": "https://assets-us-01.kc-usercontent.com/90e79cae-25c6-00b5-6f5b-27efe5c250ab/2cabc936-7bc1-4d99-b3d6-2c5b4b77b15b/anz-experience.png",
+        "url": "https://institutional.anz.com/"
+      },
+      {
+        "id": "luminary-cityofmelb",
+        "title": "City of Melbourne",
+        "description": "Accessibility-first redesign featuring real-time city data visualisations.",
+        "image": "https://assets-us-01.kc-usercontent.com/90e79cae-25c6-00b5-6f5b-27efe5c250ab/533f1d75-9ba3-4f6b-bc8d-34a2b1ca2ffb/city-of-melbourne.png",
+        "url": "https://www.melbourne.vic.gov.au/"
+      }
+    ]
+  }
+]

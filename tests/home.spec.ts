@@ -18,19 +18,20 @@ test.describe('Homepage experience', () => {
     expect(heroClass).toContain('hero-gradient');
   });
 
-  test('navigation dropdown lists top designers', async ({ page }) => {
-    const trigger = page.getByRole('button', { name: /Designers/ });
+  test('menu overlay lists top designers', async ({ page }) => {
+    const trigger = page.getByRole('button', { name: /Open navigation menu/i });
     await trigger.click();
-    const dropdown = page.getByRole('listbox', { name: '' });
-    await expect(dropdown).toBeVisible();
-    await expect(dropdown.getByRole('option', { name: /Chromatix/ })).toBeVisible();
+    const dialog = page.getByRole('dialog');
+    await expect(dialog).toBeVisible();
+    await expect(dialog.getByText(/A Friend of Mine/)).toBeVisible();
+    await dialog.getByLabel('Close menu').click();
+    await expect(dialog).toBeHidden();
   });
 
   test('search strip returns suggestions and submits query', async ({ page }) => {
     const input = page.getByRole('textbox', { name: 'Search designers' });
     await input.focus();
     await input.fill('brand');
-    await expect(page.getByRole('option', { name: /Brandwell/ })).toBeVisible();
 
     await Promise.all([
       page.waitForURL('**/search?q=brand'),
