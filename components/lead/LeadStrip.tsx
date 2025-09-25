@@ -234,7 +234,7 @@ export default function LeadStrip() {
     threshold: 0.2,
     onReveal: () => track("reveal_view", { id: "lead-strip", section: "lead", index: 0 })
   });
-  useParallax(sectionRef, 1);
+  useParallax(sectionRef, { depth: 2 });
 
   const handleOpen = () => {
     setOpen(true);

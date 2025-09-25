@@ -181,7 +181,7 @@ function FeaturedDesignerCard({ designer, index, onContact }: CardProps) {
   const imageRef = useRef<HTMLDivElement>(null);
   const hasTrackedView = useRef(false);
 
-  useParallax(imageRef, 2);
+  useParallax(imageRef, { depth: 2, axis: "both" });
   useReveal(cardRef, {
     threshold: 0.4,
     delayMs: index * 60,

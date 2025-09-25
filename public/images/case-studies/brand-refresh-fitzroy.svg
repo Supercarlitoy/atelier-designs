@@ -1,0 +1,20 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f1f1f" />
+      <stop offset="100%" stop-color="#3c2f6d" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f89b29" />
+      <stop offset="100%" stop-color="#f35b2c" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="#0c0c0f" />
+  <circle cx="480" cy="400" r="260" fill="url(#bg)" opacity="0.95" />
+  <rect x="760" y="220" width="560" height="140" rx="28" fill="url(#accent)" opacity="0.9" />
+  <rect x="760" y="400" width="480" height="90" rx="20" fill="#ffffff" opacity="0.85" />
+  <rect x="280" y="580" width="1080" height="24" rx="12" fill="#ffffff" opacity="0.12" />
+  <text x="280" y="720" font-family="'Helvetica Neue', Arial, sans-serif" font-size="70" font-weight="700" fill="#ffffff" opacity="0.9">
+    Fitzroy Roastery Identity Refresh
+  </text>
+</svg>

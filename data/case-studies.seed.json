@@ -3,30 +3,81 @@
     "id": "cs-001",
     "slug": "brand-refresh-fitzroy",
     "title": "Brand refresh for a Fitzroy roastery",
-    "coverUrl": "/og-template.png",
+    "coverUrl": "/images/case-studies/brand-refresh-fitzroy.svg",
     "excerpt": "Positioning and visual identity overhaul for a fast-growing cafe collective.",
     "tags": ["Brand", "Identity"],
     "designerSlug": "brandwell",
-    "designerName": "Brandwell"
+    "designerName": "Brandwell",
+    "intro": "Fitzroy's favourite roastery was scaling to three new sites and needed a brand system bold enough to live on neon signage, packaging, and digital experiences.",
+    "background": "Brandwell were commissioned to reimagine the roastery's identity ahead of interstate expansion. The existing mark lacked consistency across packaging, retail environments, and ecommerce touchpoints.",
+    "approach": [
+      "Immersive brand discovery workshops with the founding team and front-of-house crew.",
+      "Design of a modular identity system with a refreshed logotype, typographic palette, and colour language inspired by Melbourne's laneways.",
+      "Packaging prototyping and rollout guidelines covering cups, beans, apparel, and environmental graphics."
+    ],
+    "results": [
+      { "label": "Net promoter score", "value": "+22" },
+      { "label": "Retail uplift", "value": "+34%" },
+      { "label": "Ecommerce conversion", "value": "+18%" }
+    ],
+    "testimonial": {
+      "quote": "We gained a flexible brand system that feels premium without losing our neighbourhood roots.",
+      "name": "Nina West",
+      "role": "Founder, Fitzroy Roastery"
+    }
   },
   {
     "id": "cs-002",
     "slug": "immersive-gallery-launch",
     "title": "Immersive gallery launch experience",
-    "coverUrl": "/og-template.png",
+    "coverUrl": "/images/case-studies/immersive-gallery-launch.svg",
     "excerpt": "Spatial storytelling and projection mapping for a Northside opening night.",
     "tags": ["Experiential", "Spatial"],
     "designerSlug": "lumen-assembly",
-    "designerName": "Lumen Assembly"
+    "designerName": "Lumen Assembly",
+    "intro": "To unveil a new contemporary gallery, Lumen Assembly transformed the industrial space into a responsive environment for one night only.",
+    "background": "The client wanted an opening that felt like stepping into the artist's sketchbook. We were asked to connect visitors with the work before it hit the walls.",
+    "approach": [
+      "Mapped the warehouse architecture into a real-time Unreal Engine environment which drove projections and lighting cues.",
+      "Crafted sonic and scent design to mirror the artworks' materials, synced via a custom show control system.",
+      "Built a participatory sculpture where attendees could manipulate light and texture, feeding captured motion back into the projection canvas."
+    ],
+    "results": [
+      { "label": "Opening attendance", "value": "+280% vs forecast" },
+      { "label": "Time in experience", "value": "18 min avg" },
+      { "label": "Press features", "value": "9 publications" }
+    ],
+    "testimonial": {
+      "quote": "We pushed what a gallery launch could feel like and Lumen Assembly choreographed every sense flawlessly.",
+      "name": "Chloe Lang",
+      "role": "Director, Northside Contemporary"
+    }
   },
   {
     "id": "cs-003",
     "slug": "sustainable-hotel-digital",
     "title": "Digital journey for a sustainable hotel group",
-    "coverUrl": "/og-template.png",
+    "coverUrl": "/images/case-studies/sustainable-hotel-digital.svg",
     "excerpt": "Booking flow and membership platform built for a carbon-neutral brand.",
     "tags": ["Digital", "UX"],
     "designerSlug": "luminary",
-    "designerName": "Luminary"
+    "designerName": "Luminary",
+    "intro": "Luminary partnered with a carbon-neutral hotel group to rebuild the guest journey across search, booking, loyalty, and post-stay communications.",
+    "background": "Legacy systems created friction for environmentally conscious travellers, from availability filters to carbon offset transparency.",
+    "approach": [
+      "Service blueprinting and UX research to map the end-to-end stay lifecycle.",
+      "Design and delivery of a headless booking experience with real-time energy and offset visualisations.",
+      "Rollout of a member portal giving guests personalised recommendations and impact tracking dashboards."
+    ],
+    "results": [
+      { "label": "Booking completion", "value": "+26%" },
+      { "label": "Loyalty signups", "value": "+42%" },
+      { "label": "Sustainable upsells", "value": "+58%" }
+    ],
+    "testimonial": {
+      "quote": "Guests finally see the positive impact of their stay, and the data proves it.",
+      "name": "Ravi Patel",
+      "role": "Chief Digital Officer, Verdant Stays"
+    }
   }
 ]

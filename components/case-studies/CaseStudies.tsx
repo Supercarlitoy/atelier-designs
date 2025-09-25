@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef } from "react";
 
 import caseStudies from "@/data/case-studies.seed.json";
@@ -19,7 +20,11 @@ function CaseStudyCard({ study, index }: CaseStudyCardProps) {
   const imageRef = useRef<HTMLDivElement>(null);
   const hasTrackedRef = useRef(false);
 
-  useParallax(imageRef, 1);
+  useParallax(imageRef, {
+    depth: 2,
+    axis: index % 2 === 0 ? "y" : "x",
+    invert: index % 2 === 1
+  });
   useReveal(cardRef, {
     threshold: 0.3,
     delayMs: index * 80,
@@ -54,7 +59,7 @@ function CaseStudyCard({ study, index }: CaseStudyCardProps) {
   }, [index, study.slug]);
 
   return (
-    <a
+    <Link
       href={`/case-studies/${study.slug}`}
       className="group block h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f4f5f6]"
       onClick={() => track("project_click", { slug: study.slug })}
@@ -86,7 +91,7 @@ function CaseStudyCard({ study, index }: CaseStudyCardProps) {
           </ul>
         </div>
       </div>
-    </a>
+    </Link>
   );
 }
 

@@ -102,7 +102,7 @@ export default function Testimonials() {
     onReveal: () =>
       track("reveal_view", { id: "testimonials", section: "testimonials", index: 0 })
   });
-  useParallax(trackRef, 1);
+  useParallax(trackRef, { depth: 2, invert: true });
 
   useEffect(() => {
     const update = () => {

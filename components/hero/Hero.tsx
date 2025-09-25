@@ -13,9 +13,9 @@ export default function Hero() {
   const headingRef = useRef<HTMLHeadingElement>(null);
   const paragraphRef = useRef<HTMLParagraphElement>(null);
 
-  useParallax(circleLargeRef, 3);
-  useParallax(circleMidRef, 2);
-  useParallax(circleSmallRef, 1);
+  useParallax(circleLargeRef, { depth: 4, axis: "both" });
+  useParallax(circleMidRef, { depth: 3, invert: true });
+  useParallax(circleSmallRef, { depth: 2, axis: "x" });
   useReveal(headingRef, {
     threshold: 0.4,
     onReveal: () => track("reveal_view", { id: "hero-heading", section: "hero", index: 0 })

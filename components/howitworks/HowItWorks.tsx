@@ -61,7 +61,7 @@ export default function HowItWorks() {
         index: STEPS.length
       })
   });
-  useParallax(calloutRef, 1);
+  useParallax(calloutRef, { depth: 2, axis: "both" });
 
   const handleClaimClick = () => {
     track("profile_claim_click", { source: "how_it_works" });

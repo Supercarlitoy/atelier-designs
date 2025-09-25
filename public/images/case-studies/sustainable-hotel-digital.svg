@@ -1,0 +1,17 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="eco" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f5132" />
+      <stop offset="100%" stop-color="#4fbf67" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="#031b10" />
+  <rect x="220" y="180" width="1160" height="540" rx="48" fill="#0d2b1b" opacity="0.85" />
+  <rect x="280" y="240" width="1040" height="120" rx="26" fill="#ffffff" opacity="0.8" />
+  <rect x="280" y="390" width="640" height="90" rx="24" fill="#ffffff" opacity="0.7" />
+  <rect x="280" y="520" width="840" height="60" rx="22" fill="#ffffff" opacity="0.5" />
+  <circle cx="1250" cy="340" r="160" fill="url(#eco)" opacity="0.9" />
+  <text x="280" y="720" font-family="'Helvetica Neue', Arial, sans-serif" font-size="68" font-weight="700" fill="#8bd9a8">
+    Carbon Neutral Hospitality Platform
+  </text>
+</svg>
