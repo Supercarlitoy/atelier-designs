@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 
 import testimonials from "@/data/testimonials.seed.json";
+import { useParallax } from "@/hooks/useParallax";
 import { useReveal } from "@/hooks/useReveal";
 import { track } from "@/lib/analytics";
 
@@ -101,6 +102,7 @@ export default function Testimonials() {
     onReveal: () =>
       track("reveal_view", { id: "testimonials", section: "testimonials", index: 0 })
   });
+  useParallax(trackRef, 1);
 
   useEffect(() => {
     const update = () => {

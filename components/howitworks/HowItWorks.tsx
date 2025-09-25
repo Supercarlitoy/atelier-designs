@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 
+import { useParallax } from "@/hooks/useParallax";
 import { useReveal } from "@/hooks/useReveal";
 import { track } from "@/lib/analytics";
 
@@ -60,6 +61,7 @@ export default function HowItWorks() {
         index: STEPS.length
       })
   });
+  useParallax(calloutRef, 1);
 
   const handleClaimClick = () => {
     track("profile_claim_click", { source: "how_it_works" });

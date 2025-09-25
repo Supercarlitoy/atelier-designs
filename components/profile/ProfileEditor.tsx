@@ -64,7 +64,7 @@ export function ProfileEditor({ profile }: ProfileEditorProps) {
   };
 
   return (
-    <section className="rounded-3xl border border-[rgba(17,17,17,0.08)] bg-white p-8 shadow-[0_32px_60px_rgba(15,18,24,0.12)] md:p-12">
+    <section className="rounded-3xl border border-[rgba(17,17,17,0.08)] bg-white p-6 shadow-[0_32px_60px_rgba(15,18,24,0.12)] sm:p-8 md:p-12">
       <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
         <div>
           <p className="text-xs uppercase tracking-[0.3rem] text-black/40">Inline editor</p>

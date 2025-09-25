@@ -4,6 +4,7 @@ import { FormEvent, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
 import { track } from "@/lib/analytics";
+import { useParallax } from "@/hooks/useParallax";
 import { useReveal } from "@/hooks/useReveal";
 
 type LeadModalProps = {
@@ -233,6 +234,7 @@ export default function LeadStrip() {
     threshold: 0.2,
     onReveal: () => track("reveal_view", { id: "lead-strip", section: "lead", index: 0 })
   });
+  useParallax(sectionRef, 1);
 
   const handleOpen = () => {
     setOpen(true);

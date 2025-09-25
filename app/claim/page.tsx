@@ -50,7 +50,7 @@ export default function ClaimPage() {
 
   return (
     <main className="bg-[#f4f4f4] pb-24 pt-16">
-      <div className="mx-auto max-w-3xl rounded-3xl border border-[rgba(17,17,17,0.06)] bg-white/95 p-10 shadow-[0_24px_60px_rgba(15,18,24,0.12)]">
+      <div className="mx-auto max-w-3xl rounded-3xl border border-[rgba(17,17,17,0.06)] bg-white/95 px-6 py-8 shadow-[0_24px_60px_rgba(15,18,24,0.12)] sm:p-10">
         <p className="text-xs uppercase tracking-[0.4rem] text-black/40">Claim a profile</p>
         <h1 className="mt-2 text-3xl font-semibold text-black md:text-4xl">
           Verify ownership of an existing studio profile.

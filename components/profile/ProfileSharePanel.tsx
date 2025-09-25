@@ -37,7 +37,7 @@ export function ProfileSharePanel({ profile }: ProfileSharePanelProps) {
   };
 
   return (
-    <section className="rounded-3xl border border-[rgba(17,17,17,0.06)] bg-black px-8 py-10 text-white shadow-[0_24px_48px_rgba(15,18,24,0.2)]">
+    <section className="rounded-3xl border border-[rgba(17,17,17,0.06)] bg-black px-6 py-8 text-white shadow-[0_24px_48px_rgba(15,18,24,0.2)] md:px-8 md:py-10">
       <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
         <div>
           <p className="text-xs uppercase tracking-[0.3rem] text-white/50">Share</p>

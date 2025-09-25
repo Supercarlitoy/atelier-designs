@@ -44,6 +44,8 @@ export default function MobileMenuOverlay({
     }
 
     const previouslyFocused = document.activeElement as HTMLElement | null;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -83,6 +85,7 @@ export default function MobileMenuOverlay({
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
       previouslyFocused?.focus();
+      document.body.style.overflow = previousOverflow;
     };
   }, [open, onClose]);
 
@@ -111,18 +114,18 @@ export default function MobileMenuOverlay({
       ref={overlayRef}
       role="dialog"
       aria-modal="true"
-      className="fixed inset-0 z-50 bg-white"
+      className="animate-overlay fixed inset-0 z-50 bg-white overflow-y-auto"
       tabIndex={-1}
     >
       <button
         ref={firstFocusableRef}
         aria-label="Close menu"
         onClick={onClose}
-        className="absolute right-4 top-4 rounded-full border border-black/10 px-4 py-2 text-sm"
+        className="absolute right-4 top-4 z-10 rounded-full border border-black/10 px-4 py-2 text-sm"
       >
         ✕
       </button>
-      <div className="flex h-full animate-slideIn flex-col justify-between p-8">
+      <div className="flex min-h-full animate-slideIn flex-col justify-between p-6 sm:p-8">
         <nav aria-label="Mobile Primary" className="space-y-8">
           {navLinks.map((link) => (
             <a

@@ -1,0 +1,20 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gorman" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f9d976" />
+      <stop offset="100%" stop-color="#f39f86" />
+    </linearGradient>
+    <pattern id="dots" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="rotate(12)">
+      <circle cx="12" cy="12" r="6" fill="#1f1f1f" opacity="0.18" />
+    </pattern>
+  </defs>
+  <rect width="1600" height="900" fill="#181818" />
+  <rect x="150" y="140" width="1300" height="620" rx="48" fill="url(#gorman)" />
+  <rect x="210" y="200" width="520" height="500" rx="32" fill="#ffffff" />
+  <rect x="790" y="220" width="540" height="160" rx="26" fill="#ffffff" opacity="0.9" />
+  <rect x="790" y="420" width="540" height="120" rx="24" fill="#ffffff" opacity="0.7" />
+  <rect x="260" y="260" width="400" height="420" rx="28" fill="url(#dots)" />
+  <text x="790" y="600" font-size="68" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" fill="#1f1f1f" opacity="0.75">
+    Gorman Ecommerce Refresh
+  </text>
+</svg>

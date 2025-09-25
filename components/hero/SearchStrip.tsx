@@ -74,7 +74,7 @@ export default function SearchStrip() {
         action="/search"
         method="get"
         onSubmit={handleSubmit}
-        className="mx-auto flex w-full max-w-5xl flex-col items-center gap-4 px-6 text-sm md:flex-row md:gap-6"
+        className="mx-auto flex w-full max-w-5xl flex-col items-stretch gap-4 px-6 text-sm sm:flex-row sm:items-center sm:gap-6"
       >
         <div
           className="relative flex-1 w-full"
@@ -123,7 +123,7 @@ export default function SearchStrip() {
         </div>
         <button
           type="submit"
-          className="h-16 rounded-full border border-white/25 bg-white px-10 text-xs font-semibold uppercase tracking-[0.4rem] text-black shadow-[0_18px_32px_rgba(0,0,0,0.2)] focus:outline-none focus:ring-2 focus:ring-white/80"
+          className="h-16 w-full rounded-full border border-white/25 bg-white px-10 text-xs font-semibold uppercase tracking-[0.4rem] text-black shadow-[0_18px_32px_rgba(0,0,0,0.2)] focus:outline-none focus:ring-2 focus:ring-white/80 sm:w-auto"
         >
           Search
         </button>
