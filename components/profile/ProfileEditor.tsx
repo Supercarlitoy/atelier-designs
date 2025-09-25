@@ -22,6 +22,24 @@ export function ProfileEditor({ profile }: ProfileEditorProps) {
     setDraft((current) => ({ ...current, [field]: value }));
   };
 
+  const handleServicesChange = (value: string) => {
+    const services = value
+      .split(/,|\n/) // allow commas or new lines
+      .map((item) => item.trim())
+      .filter(Boolean);
+    handleFieldChange("services", services);
+  };
+
+  const handleSocialChange = (key: string, value: string) => {
+    setDraft((current) => ({
+      ...current,
+      social: {
+        ...current.social,
+        [key]: value.trim() || undefined
+      }
+    }));
+  };
+
   const handleSave = async () => {
     setStatus("saving");
     setMessage("");
@@ -94,6 +112,34 @@ export function ProfileEditor({ profile }: ProfileEditorProps) {
         </label>
       </div>
 
+      <div className="mt-6 grid gap-6 md:grid-cols-3">
+        <label className="space-y-2">
+          <span className="text-xs uppercase tracking-[0.3rem] text-black/40">Studio email</span>
+          <input
+            type="email"
+            value={draft.email}
+            onChange={(event) => handleFieldChange("email", event.target.value)}
+            className="w-full rounded-xl border border-black/15 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--focus)]"
+          />
+        </label>
+        <label className="space-y-2">
+          <span className="text-xs uppercase tracking-[0.3rem] text-black/40">Phone</span>
+          <input
+            value={draft.phone ?? ""}
+            onChange={(event) => handleFieldChange("phone", event.target.value)}
+            className="w-full rounded-xl border border-black/15 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--focus)]"
+          />
+        </label>
+        <label className="space-y-2">
+          <span className="text-xs uppercase tracking-[0.3rem] text-black/40">Website</span>
+          <input
+            value={draft.website}
+            onChange={(event) => handleFieldChange("website", event.target.value)}
+            className="w-full rounded-xl border border-black/15 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--focus)]"
+          />
+        </label>
+      </div>
+
       <label className="mt-6 block space-y-2">
         <span className="text-xs uppercase tracking-[0.3rem] text-black/40">Bio</span>
         <textarea
@@ -112,6 +158,40 @@ export function ProfileEditor({ profile }: ProfileEditorProps) {
           className="w-full rounded-xl border border-black/15 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--focus)]"
         />
       </label>
+
+      <label className="mt-6 block space-y-2">
+        <span className="text-xs uppercase tracking-[0.3rem] text-black/40">Services (comma or line separated)</span>
+        <textarea
+          value={draft.services.join(", ")}
+          onChange={(event) => handleServicesChange(event.target.value)}
+          rows={3}
+          className="w-full rounded-xl border border-black/15 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--focus)]"
+        />
+      </label>
+
+      <section className="mt-8 rounded-3xl border border-black/10 bg-[#f9f9f9] p-6">
+        <h3 className="text-sm font-semibold uppercase tracking-[0.3rem] text-black/50">Social links</h3>
+        <div className="mt-4 grid gap-4 md:grid-cols-2">
+          {[
+            "website",
+            "linkedin",
+            "instagram",
+            "twitter",
+            "dribbble",
+            "behance"
+          ].map((key) => (
+            <label key={key} className="space-y-2 text-sm text-black/70">
+              <span className="text-xs uppercase tracking-[0.3rem] text-black/40">{key}</span>
+              <input
+                value={draft.social?.[key] ?? ""}
+                onChange={(event) => handleSocialChange(key, event.target.value)}
+                placeholder={`https://`} 
+                className="w-full rounded-xl border border-black/15 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--focus)]"
+              />
+            </label>
+          ))}
+        </div>
+      </section>
 
       <div className="mt-8 flex flex-wrap gap-4">
         <button

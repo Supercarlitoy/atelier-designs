@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import featuredDesigners from "@/data/featured-designers.seed.json";
 import profiles from "@/data/profiles.seed.json";
+import { getProfileBySlug } from "@/lib/profiles";
 
 const SERVICE_GROUPS = [
   {
@@ -20,18 +21,22 @@ const SERVICE_GROUPS = [
 
 const directory = Array.from(
   new Map(
-    [...featuredDesigners, ...profiles].map((entry) => [
-      entry.slug,
-      {
-        id: entry.id,
-        slug: entry.slug,
-        name: entry.name,
-        services: entry.services,
-        location: entry.location,
-        href: "href" in entry ? entry.href : entry.website,
-        bio: "bio" in entry ? entry.bio : entry.tagline
-      }
-    ])
+    [...featuredDesigners, ...profiles].map((entry) => {
+      const profile = getProfileBySlug(entry.slug);
+      return [
+        entry.slug,
+        {
+          id: entry.id,
+          slug: entry.slug,
+          name: entry.name,
+          services: entry.services,
+          location: entry.location,
+          href: "href" in entry ? entry.href : entry.website,
+          bio: "bio" in entry ? entry.bio : entry.tagline,
+          hasProfile: Boolean(profile)
+        }
+      ];
+    })
   ).values()
 );
 
@@ -115,12 +120,21 @@ export default function DesignersPage() {
                 >
                   View portfolio
                 </a>
-                <Link
-                  href={`/profiles/${entry.slug}`}
-                  className="w-full rounded-full border border-black/15 px-6 py-3 text-center text-xs font-semibold uppercase tracking-[0.35rem] text-black transition hover:border-black focus:outline-none focus-visible:ring-2 focus-visible:ring-black/40 focus-visible:ring-offset-2 focus-visible:ring-offset-white sm:w-auto"
-                >
-                  View directory profile
-                </Link>
+                {entry.hasProfile ? (
+                  <Link
+                    href={`/profiles/${entry.slug}`}
+                    className="w-full rounded-full border border-black/15 px-6 py-3 text-center text-xs font-semibold uppercase tracking-[0.35rem] text-black transition hover:border-black focus:outline-none focus-visible:ring-2 focus-visible:ring-black/40 focus-visible:ring-offset-2 focus-visible:ring-offset-white sm:w-auto"
+                  >
+                    View directory profile
+                  </Link>
+                ) : (
+                  <Link
+                    href="/lead"
+                    className="w-full rounded-full border border-black/15 px-6 py-3 text-center text-xs font-semibold uppercase tracking-[0.35rem] text-black transition hover:border-black focus:outline-none focus-visible:ring-2 focus-visible:ring-black/40 focus-visible:ring-offset-2 focus-visible:ring-offset-white sm:w-auto"
+                  >
+                    Request introduction
+                  </Link>
+                )}
               </div>
             </article>
           ))}

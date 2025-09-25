@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import designers from "@/data/featured-designers.seed.json";
+import { getProfileBySlug } from "@/lib/profiles";
 
 const COLLECTION_DEFINITIONS = [
   {
@@ -78,13 +79,15 @@ export default function CollectionsPage() {
               </div>
             </div>
             <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-              {collection.designers.map((designer) => (
-                <div
-                  key={designer.id}
-                  className="rounded-2xl border border-black/10 bg-white/95 p-5 shadow-[0_12px_30px_rgba(15,18,24,0.08)]"
-                >
-                  <p className="text-xs uppercase tracking-[0.3rem] text-black/40">{designer.location}</p>
-                  <h3 className="mt-1 text-lg font-semibold">{designer.name}</h3>
+              {collection.designers.map((designer) => {
+                const profile = getProfileBySlug(designer.slug);
+                return (
+                  <div
+                    key={designer.id}
+                    className="rounded-2xl border border-black/10 bg-white/95 p-5 shadow-[0_12px_30px_rgba(15,18,24,0.08)]"
+                  >
+                    <p className="text-xs uppercase tracking-[0.3rem] text-black/40">{designer.location}</p>
+                    <h3 className="mt-1 text-lg font-semibold">{designer.name}</h3>
                   <p className="mt-3 text-xs text-black/60">{designer.bio}</p>
                   <div className="mt-4 flex flex-wrap gap-2 text-[11px] uppercase tracking-[0.25rem] text-black/50">
                     {designer.services.slice(0, 4).map((service) => (
@@ -93,24 +96,34 @@ export default function CollectionsPage() {
                       </span>
                     ))}
                   </div>
-                  <div className="mt-5 flex flex-wrap gap-2">
-                    <a
-                      href={designer.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex flex-1 items-center justify-center rounded-full bg-black px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.3rem] text-white transition hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-black/40 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
-                    >
-                      Visit site
-                    </a>
-                    <Link
-                      href={`/profiles/${designer.slug}`}
-                      className="inline-flex flex-1 items-center justify-center rounded-full border border-black/15 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.3rem] text-black transition hover:border-black focus:outline-none focus-visible:ring-2 focus-visible:ring-black/40 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
-                    >
-                      View profile
-                    </Link>
+                    <div className="mt-5 flex flex-wrap gap-2">
+                      <a
+                        href={designer.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex flex-1 items-center justify-center rounded-full bg-black px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.3rem] text-white transition hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-black/40 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+                      >
+                        Visit site
+                      </a>
+                      {profile ? (
+                        <Link
+                          href={`/profiles/${profile.slug}`}
+                          className="inline-flex flex-1 items-center justify-center rounded-full border border-black/15 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.3rem] text-black transition hover:border-black focus:outline-none focus-visible:ring-2 focus-visible:ring-black/40 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+                        >
+                          View profile
+                        </Link>
+                      ) : (
+                        <Link
+                          href="/lead"
+                          className="inline-flex flex-1 items-center justify-center rounded-full border border-black/15 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.3rem] text-black transition hover:border-black focus:outline-none focus-visible:ring-2 focus-visible:ring-black/40 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+                        >
+                          Request intro
+                        </Link>
+                      )}
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </article>
         ))}

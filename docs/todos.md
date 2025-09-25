@@ -8,3 +8,6 @@
 - [x] Enhance parallax system with directional controls across hero, featured, process, lead, and testimonials
 - [x] Generate sitemap XML for search engines
 - [x] Ensure responsive controls and buttons across new layouts
+- [x] Expand profile personalization editor and contact fields
+- [x] Harden sharing experience with native share fallback and canonical URLs
+- [ ] Wire claim, signup, and contact forms to production persistence

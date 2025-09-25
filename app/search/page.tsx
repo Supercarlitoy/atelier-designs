@@ -3,6 +3,7 @@ import Link from "next/link";
 import caseStudies from "@/data/case-studies.seed.json";
 import designers from "@/data/featured-designers.seed.json";
 import profiles from "@/data/profiles.seed.json";
+import { getProfileBySlug } from "@/lib/profiles";
 
 function filterByQuery<T extends { name?: string; title?: string; services?: string[]; excerpt?: string; intro?: string }>(
   items: T[],
@@ -64,8 +65,10 @@ export default function SearchPage({ searchParams }: { searchParams: { q?: strin
           </p>
         </div>
         <div className="mt-6 grid gap-4 md:grid-cols-2">
-          {designerResults.map((designer) => (
-            <article key={designer.slug} className="rounded-3xl border border-black/10 bg-white p-6 shadow-[0_16px_36px_rgba(15,18,24,0.08)]">
+          {designerResults.map((designer) => {
+            const profile = getProfileBySlug(designer.slug);
+            return (
+              <article key={designer.slug} className="rounded-3xl border border-black/10 bg-white p-6 shadow-[0_16px_36px_rgba(15,18,24,0.08)]">
               <p className="text-xs uppercase tracking-[0.3rem] text-black/40">{designer.location}</p>
               <h3 className="mt-2 text-xl font-semibold">{designer.name}</h3>
               {"bio" in designer ? (
@@ -89,15 +92,25 @@ export default function SearchPage({ searchParams }: { searchParams: { q?: strin
                 >
                   Visit site
                 </a>
-                <Link
-                  href={`/profiles/${designer.slug}`}
-                  className="inline-flex w-full items-center justify-center rounded-full border border-black/15 px-6 py-3 text-xs font-semibold uppercase tracking-[0.35rem] text-black transition hover:border-black focus:outline-none focus-visible:ring-2 focus-visible:ring-black/40 focus-visible:ring-offset-2 focus-visible:ring-offset-white sm:w-auto"
-                >
-                  View profile
-                </Link>
+                {profile ? (
+                  <Link
+                    href={`/profiles/${designer.slug}`}
+                    className="inline-flex w-full items-center justify-center rounded-full border border-black/15 px-6 py-3 text-xs font-semibold uppercase tracking-[0.35rem] text-black transition hover:border-black focus:outline-none focus-visible:ring-2 focus-visible:ring-black/40 focus-visible:ring-offset-2 focus-visible:ring-offset-white sm:w-auto"
+                  >
+                    View profile
+                  </Link>
+                ) : (
+                  <Link
+                    href="/lead"
+                    className="inline-flex w-full items-center justify-center rounded-full border border-black/15 px-6 py-3 text-xs font-semibold uppercase tracking-[0.35rem] text-black transition hover:border-black focus:outline-none focus-visible:ring-2 focus-visible:ring-black/40 focus-visible:ring-offset-2 focus-visible:ring-offset-white sm:w-auto"
+                  >
+                    Request intro
+                  </Link>
+                )}
               </div>
             </article>
-          ))}
+            );
+          })}
         </div>
       </section>
 

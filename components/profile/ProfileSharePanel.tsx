@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 import { track } from "@/lib/analytics";
 import { ProfileRecord } from "@/types/profile";
@@ -17,8 +17,16 @@ type ProfileSharePanelProps = {
 
 export function ProfileSharePanel({ profile }: ProfileSharePanelProps) {
   const [copyState, setCopyState] = useState<"idle" | "copied">("idle");
-  const shareUrl = typeof window !== "undefined" ? window.location.href : `https://atelier.digital/profiles/${profile.slug}`;
-  const shareText = `${profile.name} — Melbourne Designers Directory`;
+
+  const baseUrl = useMemo(() => {
+    if (typeof window !== "undefined") {
+      return window.location.origin;
+    }
+    return process.env.NEXT_PUBLIC_SITE_URL ?? "https://atelierdesigns.com";
+  }, []);
+
+  const shareUrl = `${baseUrl}/profiles/${profile.slug}`;
+  const shareText = `${profile.name} — ${profile.tagline || "Curated Melbourne designer"}`;
 
   const handleCopy = async () => {
     try {
@@ -34,6 +42,19 @@ export function ProfileSharePanel({ profile }: ProfileSharePanelProps) {
   const handleShare = (platform: string, href: string) => {
     track("profile_share_click", { profile_id: profile.id, platform });
     window.open(href, "_blank", "noopener,noreferrer");
+  };
+
+  const handleNativeShare = async () => {
+    if (typeof navigator !== "undefined" && navigator.share) {
+      try {
+        await navigator.share({ title: profile.name, text: shareText, url: shareUrl });
+        track("profile_share_click", { profile_id: profile.id, platform: "native" });
+      } catch (error) {
+        console.warn("Share cancelled", error);
+      }
+    } else {
+      void handleCopy();
+    }
   };
 
   return (
@@ -52,6 +73,13 @@ export function ProfileSharePanel({ profile }: ProfileSharePanelProps) {
           className="inline-flex items-center justify-center rounded-full border border-white/30 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3rem] text-white transition hover:bg-white hover:text-black"
         >
           {copyState === "copied" ? "Link copied" : "Copy link"}
+        </button>
+        <button
+          type="button"
+          onClick={handleNativeShare}
+          className="inline-flex items-center justify-center rounded-full border border-white/30 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3rem] text-white transition hover:bg-white hover:text-black md:hidden"
+        >
+          Share...
         </button>
       </div>
       <div className="mt-8 flex flex-wrap gap-3">
