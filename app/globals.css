@@ -12,12 +12,12 @@ html {
 }
 
 .hero-gradient {
-  background-image: linear-gradient(180deg, #c7c9ca 0%, #bebfc0 100%);
+  background: linear-gradient(180deg, #d8dadf 0%, #cfd1d6 100%);
 }
 
 @media (min-width: 768px) {
   .hero-gradient {
-    background-image: linear-gradient(90deg, #c4c6c7 0%, #cccecf 100%);
+    background: linear-gradient(120deg, #d9dbdf 0%, #cacdd3 100%);
   }
 }
 

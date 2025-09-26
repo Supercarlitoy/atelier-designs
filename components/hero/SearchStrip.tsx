@@ -98,28 +98,27 @@ export default function SearchStrip() {
             className="h-16 w-full rounded-full border border-white/15 bg-[#dcdcdc] px-7 text-base font-medium text-[#141414] placeholder:text-[#8d8d8d] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-white/70"
             required
           />
-          {suggestions.length > 0 ? (
-            <ul
-              id={listboxId}
-              role="listbox"
-              className="absolute left-0 right-0 top-full z-20 mt-3 overflow-hidden rounded-2xl border border-black/10 bg-white shadow-[0_20px_40px_rgba(0,0,0,0.16)]"
-            >
-              {suggestions.map((suggestion) => (
-                <li key={suggestion.id} role="option" aria-selected={false}>
-                  <button
-                    type="button"
-                    onClick={() => handleSuggestionSelect(suggestion)}
-                    className="flex w-full flex-col items-start gap-1 px-5 py-3 text-left transition-colors hover:bg-black/5 focus:outline-none focus-visible:bg-black/5"
-                  >
-                    <span className="font-medium text-black">{suggestion.name}</span>
-                    <span className="text-xs text-black/60">
-                      {suggestion.location} • {suggestion.services.slice(0, 3).join(", ")}
-                    </span>
-                  </button>
-                </li>
-              ))}
-            </ul>
-          ) : null}
+          <ul
+            id={listboxId}
+            role="listbox"
+            aria-hidden={suggestions.length === 0}
+            className={`absolute left-0 right-0 top-full z-20 mt-3 overflow-hidden rounded-2xl border border-black/10 bg-white shadow-[0_20px_40px_rgba(0,0,0,0.16)] ${suggestions.length === 0 ? "hidden" : ""}`}
+          >
+            {suggestions.map((suggestion) => (
+              <li key={suggestion.id} role="option" aria-selected={false}>
+                <button
+                  type="button"
+                  onClick={() => handleSuggestionSelect(suggestion)}
+                  className="flex w-full flex-col items-start gap-1 px-5 py-3 text-left transition-colors hover:bg-black/5 focus:outline-none focus-visible:bg-black/5"
+                >
+                  <span className="font-medium text-black">{suggestion.name}</span>
+                  <span className="text-xs text-black/75">
+                    {suggestion.location} • {suggestion.services.slice(0, 3).join(", ")}
+                  </span>
+                </button>
+              </li>
+            ))}
+          </ul>
         </div>
         <button
           type="submit"

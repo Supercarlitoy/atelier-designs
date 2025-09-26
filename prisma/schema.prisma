@@ -1,0 +1,168 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// User authentication and profile management
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // User profile
+  profile Profile?
+
+  // Relations
+  profileOwnerships ProfileOwnership[]
+  caseStudies       CaseStudy[]
+  newsletterSignups NewsletterSignup[]
+
+  @@map("users")
+}
+
+// Designer/Studio profiles
+model Profile {
+  id          String   @id @default(uuid())
+  slug        String   @unique
+  name        String
+  tagline     String?
+  location    String?
+  services    String[]
+  website     String?
+  email       String?
+  phone       String?
+  coverImage  String?
+  avatarImage String?
+  bio         String?
+  highlights  String[]
+  featured    Boolean  @default(false)
+  published   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // User relationship (optional - for claimed profiles)
+  userId String? @unique
+  user   User?   @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  // JSON fields for complex data
+  social Json? // ProfileSocial type
+
+  // Relations
+  portfolioItems    PortfolioItem[]
+  caseStudies       CaseStudy[]
+  profileOwnerships ProfileOwnership[]
+
+  @@map("profiles")
+}
+
+// Portfolio items for profiles
+model PortfolioItem {
+  id          String  @id @default(uuid())
+  title       String
+  description String?
+  image       String?
+  url         String?
+  order       Int     @default(0)
+
+  // Profile relationship
+  profileId String
+  profile   Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("portfolio_items")
+}
+
+// Case studies
+model CaseStudy {
+  id           String   @id @default(uuid())
+  slug         String   @unique
+  title        String
+  coverUrl     String?
+  excerpt      String?
+  tags         String[]
+  intro        String?
+  background   String?
+  approach     String[]
+  results      Json? // Array of { label: string, value: string }
+  testimonial  Json? // { quote: string, name: string, role: string }
+  published    Boolean  @default(false)
+  featured     Boolean  @default(false)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  // Designer/Studio relationship
+  designerId   String?
+  designer     Profile? @relation(fields: [designerId], references: [id], onDelete: SetNull)
+  designerName String? // Fallback for non-registered designers
+
+  // Author relationship (who created the case study)
+  authorId String?
+  author   User?   @relation(fields: [authorId], references: [id], onDelete: SetNull)
+
+  @@map("case_studies")
+}
+
+// Profile ownership/claiming system
+model ProfileOwnership {
+  id          String       @id @default(uuid())
+  state       ProfileState @default(DRAFT)
+  claimedAt   DateTime?
+  publishedAt DateTime?
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  // Relationships
+  profileId String
+  profile   Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([profileId, userId])
+  @@map("profile_ownerships")
+}
+
+// Newsletter signups
+model NewsletterSignup {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  source    String? // Where they signed up from
+  createdAt DateTime @default(now())
+
+  // Optional user relationship
+  userId String?
+  user   User?   @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@map("newsletter_signups")
+}
+
+// Lead generation
+model Lead {
+  id          String   @id @default(uuid())
+  name        String
+  email       String
+  company     String?
+  message     String?
+  source      String? // Which form/page they came from
+  status      String   @default("new") // new, contacted, qualified, closed
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("leads")
+}
+
+// Enums
+enum ProfileState {
+  DRAFT
+  UNDER_REVIEW
+  PUBLISHED
+  REJECTED
+}

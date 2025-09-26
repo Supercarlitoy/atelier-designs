@@ -1,0 +1,42 @@
+{
+  "project": "Atelier Designs Operational Roadmap",
+  "session_started_at": "2025-09-26T00:00:00+10:00",
+  "last_ams_scan": {
+    "input_type": "Operational planning template fill",
+    "scores": {"precision": 0.92, "generative": 0.48, "exploratory": 0.22},
+    "traffic_light": "GREEN",
+    "decision": "Precision",
+    "confidence": 0.92
+  },
+  "goal": "Translate outstanding Atelier Designs roadmap items into a controlled execution plan with clear gates and evidence requirements.",
+  "user_confirmation": true,
+  "history": [
+    {"ts":"2025-02-14T10:00:00Z","action":"NEW SESSION"},
+    {"ts":"2025-02-14T10:00:05Z","action":"AMS SCAN","mode":"Precision","confidence":0.92},
+    {"ts":"2025-09-26T11:30:00+10:00","action":"TASK START","task":"A1","mode":"Precision"},
+    {"ts":"2025-09-26T11:32:00+10:00","action":"TASK COMPLETE","task":"A1"},
+    {"ts":"2025-09-26T11:32:30+10:00","action":"TASK START","task":"A2","mode":"Precision"},
+    {"ts":"2025-09-26T11:35:00+10:00","action":"TASK COMPLETE","task":"A2"},
+    {"ts":"2025-09-26T11:35:30+10:00","action":"TASK START","task":"A3","mode":"Precision"},
+    {"ts":"2025-09-26T11:38:30+10:00","action":"TASK COMPLETE","task":"A3"},
+    {"ts":"2025-09-26T11:39:00+10:00","action":"STATUS","state":"READY_FOR_EXECUTION_PHASE"},
+    {"ts":"2025-09-26T11:40:00+10:00","action":"SPEC START","spec":"forms-persistence"},
+    {"ts":"2025-09-26T11:42:00+10:00","action":"SPECIFY","spec":"forms-persistence","version":"v1.0","gate":"PASS"},
+    {"ts":"2025-09-26T11:42:30+10:00","action":"PLAN","spec":"forms-persistence","gate":"PASS"},
+    {"ts":"2025-09-26T11:43:00+10:00","action":"TASKS","spec":"forms-persistence","gate":"PASS"},
+    {"ts":"2025-09-26T11:43:30+10:00","action":"TASK START","task":"B1","mode":"Precision"},
+    {"ts":"2025-09-26T11:46:00+10:00","action":"TASK COMPLETE","task":"B1"},
+    {"ts":"2025-09-26T11:46:30+10:00","action":"TASK START","task":"B2","mode":"Precision"},
+    {"ts":"2025-09-26T11:55:00+10:00","action":"TASK COMPLETE","task":"B2"},
+    {"ts":"2025-09-26T11:55:30+10:00","action":"TASK START","task":"B3","mode":"Precision"},
+    {"ts":"2025-09-26T12:02:00+10:00","action":"TASK COMPLETE","task":"B3"},
+    {"ts":"2025-09-26T12:02:30+10:00","action":"TASK START","task":"B4","mode":"Precision"},
+    {"ts":"2025-09-26T12:08:00+10:00","action":"TASK COMPLETE","task":"B4"},
+    {"ts":"2025-09-26T12:08:30+10:00","action":"STATUS","state":"FORMS_PERSISTENCE_COMPLETE"},
+    {"ts":"2025-09-26T12:15:00+10:00","action":"SPEC UPDATE","spec":"forms-persistence","version":"v1.1"},
+    {"ts":"2025-09-26T12:30:00+10:00","action":"SPEC START","spec":"motion-experience"},
+    {"ts":"2025-09-26T12:31:00+10:00","action":"SPECIFY","spec":"motion-experience","version":"v1.0","gate":"PASS"},
+    {"ts":"2025-09-26T12:31:30+10:00","action":"PLAN","spec":"motion-experience","gate":"PASS"},
+    {"ts":"2025-09-26T12:32:00+10:00","action":"TASKS","spec":"motion-experience","gate":"PASS"}
+  ]
+}

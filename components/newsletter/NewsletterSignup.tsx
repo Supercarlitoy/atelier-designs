@@ -61,7 +61,7 @@ export default function NewsletterSignup() {
     >
       <div className="mx-auto flex max-w-4xl flex-col gap-6 rounded-3xl border border-[rgba(17,17,17,0.06)] bg-white/95 p-10 text-center shadow-[0_16px_40px_rgba(15,18,24,0.08)]">
         <div>
-          <p className="text-xs uppercase tracking-[0.3rem] text-black/50">Newsletter</p>
+          <p className="text-xs uppercase tracking-[0.3rem] text-black/70">Newsletter</p>
           <h2 id="newsletter-heading" className="mt-3 text-3xl font-semibold md:text-4xl">
             Stay in the loop on featured designers.
           </h2>
@@ -90,7 +90,7 @@ export default function NewsletterSignup() {
             {status === "loading" ? "Submitting…" : "Subscribe"}
           </button>
         </form>
-        <p id="newsletter-hint" className="text-xs text-black/50" aria-live="polite">
+        <p id="newsletter-hint" className="text-xs text-black/70" aria-live="polite">
           {message}
         </p>
       </div>

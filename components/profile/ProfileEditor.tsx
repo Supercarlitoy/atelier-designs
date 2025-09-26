@@ -85,7 +85,7 @@ export function ProfileEditor({ profile }: ProfileEditorProps) {
     <section className="rounded-3xl border border-[rgba(17,17,17,0.08)] bg-white p-6 shadow-[0_32px_60px_rgba(15,18,24,0.12)] sm:p-8 md:p-12">
       <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
         <div>
-          <p className="text-xs uppercase tracking-[0.3rem] text-black/40">Inline editor</p>
+          <p className="text-xs uppercase tracking-[0.3rem] text-black/75">Inline editor</p>
           <h2 className="mt-2 text-3xl font-semibold">Shape your profile before publishing.</h2>
         </div>
         <span className="inline-flex items-center gap-2 rounded-full bg-black px-4 py-2 text-xs font-semibold uppercase tracking-[0.3rem] text-white">
@@ -95,7 +95,7 @@ export function ProfileEditor({ profile }: ProfileEditorProps) {
 
       <div className="mt-8 grid gap-6 md:grid-cols-2">
         <label className="space-y-2">
-          <span className="text-xs uppercase tracking-[0.3rem] text-black/40">Tagline</span>
+          <span className="text-xs uppercase tracking-[0.3rem] text-black/75">Tagline</span>
           <input
             value={draft.tagline}
             onChange={(event) => handleFieldChange("tagline", event.target.value)}
@@ -103,7 +103,7 @@ export function ProfileEditor({ profile }: ProfileEditorProps) {
           />
         </label>
         <label className="space-y-2">
-          <span className="text-xs uppercase tracking-[0.3rem] text-black/40">Location</span>
+          <span className="text-xs uppercase tracking-[0.3rem] text-black/75">Location</span>
           <input
             value={draft.location}
             onChange={(event) => handleFieldChange("location", event.target.value)}
@@ -114,7 +114,7 @@ export function ProfileEditor({ profile }: ProfileEditorProps) {
 
       <div className="mt-6 grid gap-6 md:grid-cols-3">
         <label className="space-y-2">
-          <span className="text-xs uppercase tracking-[0.3rem] text-black/40">Studio email</span>
+          <span className="text-xs uppercase tracking-[0.3rem] text-black/75">Studio email</span>
           <input
             type="email"
             value={draft.email}
@@ -123,7 +123,7 @@ export function ProfileEditor({ profile }: ProfileEditorProps) {
           />
         </label>
         <label className="space-y-2">
-          <span className="text-xs uppercase tracking-[0.3rem] text-black/40">Phone</span>
+          <span className="text-xs uppercase tracking-[0.3rem] text-black/75">Phone</span>
           <input
             value={draft.phone ?? ""}
             onChange={(event) => handleFieldChange("phone", event.target.value)}
@@ -131,7 +131,7 @@ export function ProfileEditor({ profile }: ProfileEditorProps) {
           />
         </label>
         <label className="space-y-2">
-          <span className="text-xs uppercase tracking-[0.3rem] text-black/40">Website</span>
+          <span className="text-xs uppercase tracking-[0.3rem] text-black/75">Website</span>
           <input
             value={draft.website}
             onChange={(event) => handleFieldChange("website", event.target.value)}
@@ -141,7 +141,7 @@ export function ProfileEditor({ profile }: ProfileEditorProps) {
       </div>
 
       <label className="mt-6 block space-y-2">
-        <span className="text-xs uppercase tracking-[0.3rem] text-black/40">Bio</span>
+        <span className="text-xs uppercase tracking-[0.3rem] text-black/75">Bio</span>
         <textarea
           value={draft.bio}
           onChange={(event) => handleFieldChange("bio", event.target.value)}
@@ -151,7 +151,7 @@ export function ProfileEditor({ profile }: ProfileEditorProps) {
       </label>
 
       <label className="mt-6 block space-y-2">
-        <span className="text-xs uppercase tracking-[0.3rem] text-black/40">Highlights (comma separated)</span>
+        <span className="text-xs uppercase tracking-[0.3rem] text-black/75">Highlights (comma separated)</span>
         <input
           value={draft.highlights.join(", ")}
           onChange={(event) => handleFieldChange("highlights", event.target.value.split(/\s*,\s*/).filter(Boolean))}
@@ -160,7 +160,7 @@ export function ProfileEditor({ profile }: ProfileEditorProps) {
       </label>
 
       <label className="mt-6 block space-y-2">
-        <span className="text-xs uppercase tracking-[0.3rem] text-black/40">Services (comma or line separated)</span>
+        <span className="text-xs uppercase tracking-[0.3rem] text-black/75">Services (comma or line separated)</span>
         <textarea
           value={draft.services.join(", ")}
           onChange={(event) => handleServicesChange(event.target.value)}
@@ -170,7 +170,7 @@ export function ProfileEditor({ profile }: ProfileEditorProps) {
       </label>
 
       <section className="mt-8 rounded-3xl border border-black/10 bg-[#f9f9f9] p-6">
-        <h3 className="text-sm font-semibold uppercase tracking-[0.3rem] text-black/50">Social links</h3>
+        <h3 className="text-sm font-semibold uppercase tracking-[0.3rem] text-black/70">Social links</h3>
         <div className="mt-4 grid gap-4 md:grid-cols-2">
           {[
             "website",
@@ -181,7 +181,7 @@ export function ProfileEditor({ profile }: ProfileEditorProps) {
             "behance"
           ].map((key) => (
             <label key={key} className="space-y-2 text-sm text-black/70">
-              <span className="text-xs uppercase tracking-[0.3rem] text-black/40">{key}</span>
+              <span className="text-xs uppercase tracking-[0.3rem] text-black/75">{key}</span>
               <input
                 value={draft.social?.[key] ?? ""}
                 onChange={(event) => handleSocialChange(key, event.target.value)}

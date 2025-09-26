@@ -21,7 +21,7 @@ export default function FaqPage() {
   return (
     <main className="bg-white pb-24 pt-20 text-black">
       <section className="mx-auto max-w-4xl px-6">
-        <p className="text-[12px] uppercase tracking-[0.5rem] text-black/40">FAQ</p>
+        <p className="text-[12px] uppercase tracking-[0.5rem] text-black/75">FAQ</p>
         <h1 className="mt-4 text-4xl font-semibold md:text-5xl">Frequently asked questions.</h1>
         <p className="mt-4 text-base text-black/70 md:text-lg">
           If you can’t find the answer you’re after, get in touch via <a href="mailto:hello@atelierdesigns.com" className="underline">hello@atelierdesigns.com</a>.

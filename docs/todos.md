@@ -1,13 +1,22 @@
-# Atelier Designs – Execution Checklist
+# Atelier Designs – Automated Verification Roadmap
 
-- [x] Implement modern 404 experience with guided CTAs
-- [x] Add dedicated pages for Designers, Collections, and Case Studies (index + detail)
-- [x] Deliver supporting content pages (About, Careers, Press, Contact, FAQ, Privacy, Terms)
-- [x] Wire live search results across designers and case studies
-- [x] Replace external imagery with local assets to remove 404 responses
-- [x] Enhance parallax system with directional controls across hero, featured, process, lead, and testimonials
-- [x] Generate sitemap XML for search engines
-- [x] Ensure responsive controls and buttons across new layouts
-- [x] Expand profile personalization editor and contact fields
-- [x] Harden sharing experience with native share fallback and canonical URLs
-- [ ] Wire claim, signup, and contact forms to production persistence
+## Routes & Workflows
+- [x] Extend Playwright coverage to negative-path scenarios (duplicate, validation errors) for claim/signup/contact.
+- [x] Add Playwright journeys for designer onboarding (profile editor save/submit) with Supabase-mocked responses.
+- [x] Script smoke navigation across key routes (`/`, `/designers`, `/collections`, `/case-studies`, `/claim`, `/signup`, `/contact`).
+
+## Visual Regression
+- [x] Capture Playwright baseline screenshots for hero, claim/signup/contact forms.
+- [ ] Evaluate integrating optional visual diff tooling (e.g., Percy) into CI for homepage + submission screens.
+
+## Accessibility & Lint
+- [x] Run `axe-core` scans within Playwright for hero, claim/signup/contact pages and record findings.
+- [x] Enforce `npm run lint` as part of pre-commit/CI gate with documentation in evidence.
+
+## Performance & Sync
+- [x] Add Playwright-based performance check for homepage LCP/DCL budgets.
+- [ ] Document Supabase sync expectations (cooldown windows, notification logs) and add integration test for persistence helper.
+
+## CI Automation
+- [x] Update `.ci/workflows.md` to chain lint → Playwright → visual/perf checks.
+- [x] Provide CLI scripts (npm/yarn) to run each suite locally with `PLAYWRIGHT_SUPABASE_MOCK` toggle.

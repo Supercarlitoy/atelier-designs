@@ -14,7 +14,7 @@ export default function NotFound() {
           <div className="absolute left-1/2 top-10 h-72 w-72 -translate-x-1/2 rounded-full bg-[#1f2a60] blur-3xl opacity-60" aria-hidden />
           <div className="absolute right-0 bottom-0 h-80 w-80 translate-x-1/3 rounded-full bg-[#3a85f6] blur-[160px] opacity-50" aria-hidden />
         </div>
-        <p className="text-[12px] uppercase tracking-[0.5rem] text-white/40">Error 404</p>
+        <p className="text-[12px] uppercase tracking-[0.5rem] text-white/70">Error 404</p>
         <h1 className="mt-6 text-4xl font-semibold tracking-tight sm:text-5xl md:text-6xl">
           The page you were looking for has stepped out of the studio.
         </h1>

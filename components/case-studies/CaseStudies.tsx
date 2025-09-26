@@ -78,11 +78,11 @@ function CaseStudyCard({ study, index }: CaseStudyCardProps) {
         </div>
         <div className="flex flex-1 flex-col gap-4 p-6 text-black">
           <div>
-            <p className="text-xs uppercase tracking-[0.3rem] text-black/50">{study.designerName}</p>
+            <p className="text-xs uppercase tracking-[0.3rem] text-black/70">{study.designerName}</p>
             <h3 className="mt-2 text-2xl font-semibold leading-tight">{study.title}</h3>
           </div>
           <p className="text-sm text-black/70">{study.excerpt}</p>
-          <ul className="mt-auto flex flex-wrap gap-2 text-xs uppercase tracking-[0.3rem] text-black/50">
+          <ul className="mt-auto flex flex-wrap gap-2 text-xs uppercase tracking-[0.3rem] text-black/70">
             {study.tags.map((tag) => (
               <li key={tag} className="rounded-full border border-black/15 px-3 py-1">
                 {tag}
@@ -112,12 +112,12 @@ export default function CaseStudies() {
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="text-xs uppercase tracking-[0.3rem] text-black/50">Case studies</p>
+            <p className="text-xs uppercase tracking-[0.3rem] text-black/70">Case studies</p>
             <h2 id="case-studies-heading" className="text-3xl font-semibold md:text-4xl">
               Latest work shipping out of Melbourne.
             </h2>
           </div>
-          <p className="max-w-sm text-sm text-black/60">
+          <p className="max-w-sm text-sm text-black/75">
             Reserved aspect ratios reduce layout shift while parallax-ready imagery maintains depth. Data pulls from `GET /api/case-studies?limit=6`.
           </p>
         </div>

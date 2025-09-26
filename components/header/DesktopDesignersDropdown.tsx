@@ -123,7 +123,7 @@ export default function DesktopDesignersDropdown({ designers }: Props) {
                 className="block text-2xl leading-tight text-black transition-colors hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f4f4f4]"
               >
                 {designer.name}
-                <span className="block text-sm text-black/60">
+                <span className="block text-sm text-black/75">
                   {designer.location} • {designer.services.slice(0, 2).join(", ")}
                 </span>
               </a>

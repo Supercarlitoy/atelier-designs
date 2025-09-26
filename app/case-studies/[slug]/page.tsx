@@ -63,7 +63,7 @@ export default function CaseStudyDetail({ params }: { params: { slug: string } }
           ← All case studies
         </Link>
         <header className="mt-6">
-          <p className="text-[12px] uppercase tracking-[0.5rem] text-white/40">{study?.designerName}</p>
+          <p className="text-[12px] uppercase tracking-[0.5rem] text-white/70">{study?.designerName}</p>
           <h1 className="mt-4 text-4xl font-semibold md:text-5xl">{study?.title}</h1>
           <p className="mt-4 max-w-3xl text-base text-white/70 md:text-lg">{study?.intro}</p>
         </header>
@@ -94,7 +94,7 @@ export default function CaseStudyDetail({ params }: { params: { slug: string } }
             <ul className="mt-4 space-y-3 text-sm text-white/80">
               {study?.results.map((result) => (
                 <li key={result.label} className="flex items-baseline justify-between gap-4">
-                  <span className="text-white/60">{result.label}</span>
+                  <span className="text-white/80">{result.label}</span>
                   <span className="text-lg font-semibold text-white">{result.value}</span>
                 </li>
               ))}

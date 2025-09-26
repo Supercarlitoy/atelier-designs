@@ -120,7 +120,7 @@ function LeadModal({ onClose }: LeadModalProps) {
       >
         <div className="flex items-start justify-between">
           <div>
-            <p className="text-xs uppercase tracking-[0.3rem] text-black/50">Request connected designers</p>
+            <p className="text-xs uppercase tracking-[0.3rem] text-black/70">Request connected designers</p>
             <h3 id="lead-modal-heading" className="mt-2 text-3xl font-semibold">
               Tell us about your project
             </h3>
@@ -137,7 +137,7 @@ function LeadModal({ onClose }: LeadModalProps) {
         <form className="mt-6 grid gap-4" onSubmit={handleSubmit}>
           <div className="grid gap-4 md:grid-cols-2">
             <div>
-              <label htmlFor="lead-name" className="text-xs uppercase tracking-[0.3rem] text-black/50">
+              <label htmlFor="lead-name" className="text-xs uppercase tracking-[0.3rem] text-black/70">
                 Your name
               </label>
               <input
@@ -151,7 +151,7 @@ function LeadModal({ onClose }: LeadModalProps) {
               />
             </div>
             <div>
-              <label htmlFor="lead-email" className="text-xs uppercase tracking-[0.3rem] text-black/50">
+              <label htmlFor="lead-email" className="text-xs uppercase tracking-[0.3rem] text-black/70">
                 Email
               </label>
               <input
@@ -164,7 +164,7 @@ function LeadModal({ onClose }: LeadModalProps) {
               />
             </div>
             <div>
-              <label htmlFor="lead-suburb" className="text-xs uppercase tracking-[0.3rem] text-black/50">
+              <label htmlFor="lead-suburb" className="text-xs uppercase tracking-[0.3rem] text-black/70">
                 Suburb
               </label>
               <input
@@ -176,7 +176,7 @@ function LeadModal({ onClose }: LeadModalProps) {
               />
             </div>
             <div>
-              <label className="text-xs uppercase tracking-[0.3rem] text-black/50">Services needed</label>
+              <label className="text-xs uppercase tracking-[0.3rem] text-black/70">Services needed</label>
               <div className="mt-2 grid grid-cols-2 gap-2">
                 {SERVICE_OPTIONS.map((option) => (
                   <label key={option} className="flex items-center gap-2 rounded-xl border border-black/10 px-3 py-2 text-xs text-black/70">
@@ -188,7 +188,7 @@ function LeadModal({ onClose }: LeadModalProps) {
             </div>
           </div>
           <div>
-            <label htmlFor="lead-brief" className="text-xs uppercase tracking-[0.3rem] text-black/50">
+            <label htmlFor="lead-brief" className="text-xs uppercase tracking-[0.3rem] text-black/70">
               Project brief
             </label>
             <textarea
@@ -200,14 +200,14 @@ function LeadModal({ onClose }: LeadModalProps) {
               required
             />
           </div>
-          <label className="flex items-center gap-2 text-xs text-black/60">
+          <label className="flex items-center gap-2 text-xs text-black/75">
             <input type="checkbox" name="consent" required className="h-4 w-4" />
             I agree to be contacted about my enquiry and receive occasional directory updates.
           </label>
           <div className="flex items-center justify-between">
             <div
               ref={liveRegionRef}
-              className="text-xs text-black/60"
+              className="text-xs text-black/75"
               aria-live="polite"
             >
               {submitState === "success" ? "Thanks! We’ll be in touch shortly." : ""}
@@ -253,7 +253,7 @@ export default function LeadStrip() {
       className="bg-[#f8f1e6] px-6 py-24 text-black"
     >
       <div className="mx-auto max-w-6xl rounded-3xl border border-[rgba(17,17,17,0.06)] bg-white/95 p-12 text-center shadow-[0_16px_40px_rgba(15,18,24,0.08)]">
-        <p className="text-xs uppercase tracking-[0.3rem] text-black/50">Lead capture</p>
+        <p className="text-xs uppercase tracking-[0.3rem] text-black/70">Lead capture</p>
         <h2 id="lead-heading" className="mt-3 text-3xl font-semibold md:text-4xl">
           Request connected designers for your next project.
         </h2>

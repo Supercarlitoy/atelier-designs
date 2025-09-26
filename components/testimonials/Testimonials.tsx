@@ -65,11 +65,11 @@ function TestimonialCard({ testimonial, index, widthPercent }: TestimonialCardPr
     >
       <p className="text-lg leading-relaxed text-black/80">“{testimonial.quote}”</p>
       <div className="mt-8 space-y-2">
-        <p className="text-sm font-semibold uppercase tracking-[0.3rem] text-black/60">
+        <p className="text-sm font-semibold uppercase tracking-[0.3rem] text-black/75">
           {testimonial.name} · {testimonial.role}
         </p>
-        <p className="text-xs uppercase tracking-[0.3rem] text-black/40">{testimonial.suburb}</p>
-        <p className="text-xs text-black/50">Rated {testimonial.rating.toFixed(1)}/5</p>
+        <p className="text-xs uppercase tracking-[0.3rem] text-black/75">{testimonial.suburb}</p>
+        <p className="text-xs text-black/70">Rated {testimonial.rating.toFixed(1)}/5</p>
         <a
           href={testimonial.profileUrl}
           target="_blank"
@@ -172,7 +172,7 @@ export default function Testimonials() {
               Partners validating the directory model.
             </h2>
           </div>
-          <p className="max-w-sm text-sm text-white/60">
+          <p className="max-w-sm text-sm text-white/80">
             All reviews are verified. Carousel is keyboard-navigable and honours reduced motion preferences.
           </p>
         </div>

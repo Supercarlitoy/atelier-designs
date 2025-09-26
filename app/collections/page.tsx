@@ -35,7 +35,7 @@ export default function CollectionsPage() {
   return (
     <main className="bg-[#f4f4f4] pb-24 pt-20 text-black">
       <section className="mx-auto max-w-5xl px-6 text-center md:text-left">
-        <p className="text-[12px] uppercase tracking-[0.5rem] text-black/50">Collections</p>
+        <p className="text-[12px] uppercase tracking-[0.5rem] text-black/70">Collections</p>
         <h1 className="mt-4 text-4xl font-semibold md:text-5xl">
           Curated groupings to shortcut your shortlists.
         </h1>
@@ -66,11 +66,11 @@ export default function CollectionsPage() {
           >
             <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
               <div>
-                <p className="text-xs uppercase tracking-[0.3rem] text-black/40">Collection</p>
+                <p className="text-xs uppercase tracking-[0.3rem] text-black/75">Collection</p>
                 <h2 className="text-2xl font-semibold md:text-3xl">{collection.title}</h2>
                 <p className="mt-2 max-w-3xl text-sm text-black/65">{collection.description}</p>
               </div>
-              <div className="flex flex-wrap gap-2 text-xs uppercase tracking-[0.3rem] text-black/50">
+              <div className="flex flex-wrap gap-2 text-xs uppercase tracking-[0.3rem] text-black/70">
                 {collection.services.map((service) => (
                   <span key={service} className="rounded-full border border-black/15 px-3 py-1">
                     {service}
@@ -86,10 +86,10 @@ export default function CollectionsPage() {
                     key={designer.id}
                     className="rounded-2xl border border-black/10 bg-white/95 p-5 shadow-[0_12px_30px_rgba(15,18,24,0.08)]"
                   >
-                    <p className="text-xs uppercase tracking-[0.3rem] text-black/40">{designer.location}</p>
+                    <p className="text-xs uppercase tracking-[0.3rem] text-black/75">{designer.location}</p>
                     <h3 className="mt-1 text-lg font-semibold">{designer.name}</h3>
-                  <p className="mt-3 text-xs text-black/60">{designer.bio}</p>
-                  <div className="mt-4 flex flex-wrap gap-2 text-[11px] uppercase tracking-[0.25rem] text-black/50">
+                  <p className="mt-3 text-xs text-black/75">{designer.bio}</p>
+                  <div className="mt-4 flex flex-wrap gap-2 text-[11px] uppercase tracking-[0.25rem] text-black/70">
                     {designer.services.slice(0, 4).map((service) => (
                       <span key={service} className="rounded-full border border-black/15 px-3 py-1">
                         {service}

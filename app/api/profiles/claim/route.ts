@@ -1,22 +1,35 @@
-import { queueNotification } from "@/lib/notifications";
+import { persistClaimRequest } from "@/lib/forms/persistence";
 
 export async function POST(request: Request) {
   const payload = await request.json().catch(() => null);
 
-  if (!payload || !payload.profileSlug || !payload.email) {
+  if (!payload || !payload.profileSlug || !payload.email || !payload.fullName) {
     return new Response(JSON.stringify({ ok: false, error: "invalid_payload" }), {
       status: 400,
       headers: { "content-type": "application/json" }
     });
   }
 
-  await queueNotification("profile.claim.requested", {
+  const result = await persistClaimRequest({
     profileSlug: payload.profileSlug,
-    email: payload.email,
+    profileId: payload.profileId,
     fullName: payload.fullName,
-    proof: payload.proof
+    email: payload.email,
+    proof: payload.proof,
+    source: "claim_form"
   });
-  return new Response(JSON.stringify({ ok: true }), {
+
+  if (!result.ok) {
+    return new Response(
+      JSON.stringify({ ok: false, error: result.code, message: result.message }),
+      {
+        status: result.status,
+        headers: { "content-type": "application/json" }
+      }
+    );
+  }
+
+  return new Response(JSON.stringify({ ok: true, id: result.id }), {
     status: 200,
     headers: { "content-type": "application/json" }
   });

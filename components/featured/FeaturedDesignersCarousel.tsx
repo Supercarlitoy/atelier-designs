@@ -96,11 +96,11 @@ function ContactModal({ designer, onClose }: ContactModalProps) {
       >
         <div className="flex items-start justify-between">
           <div>
-            <p className="text-xs uppercase tracking-[0.3rem] text-black/60">Contact designer</p>
+            <p className="text-xs uppercase tracking-[0.3rem] text-black/75">Contact designer</p>
             <h3 id="contact-designer-heading" className="mt-2 text-2xl font-semibold">
               {designer.name}
             </h3>
-            <p className="text-sm text-black/60">
+            <p className="text-sm text-black/75">
               {designer.location} • {designer.services.slice(0, 3).join(", ")}
             </p>
           </div>
@@ -115,7 +115,7 @@ function ContactModal({ designer, onClose }: ContactModalProps) {
         </div>
         <form className="mt-6 space-y-4" onSubmit={(event) => event.preventDefault()}>
           <div>
-            <label htmlFor={nameId} className="text-xs uppercase tracking-[0.3rem] text-black/50">
+            <label htmlFor={nameId} className="text-xs uppercase tracking-[0.3rem] text-black/70">
               Your name
             </label>
             <input
@@ -128,7 +128,7 @@ function ContactModal({ designer, onClose }: ContactModalProps) {
             />
           </div>
           <div>
-            <label htmlFor={emailId} className="text-xs uppercase tracking-[0.3rem] text-black/50">
+            <label htmlFor={emailId} className="text-xs uppercase tracking-[0.3rem] text-black/70">
               Email
             </label>
             <input
@@ -140,7 +140,7 @@ function ContactModal({ designer, onClose }: ContactModalProps) {
             />
           </div>
           <div>
-            <label htmlFor={briefId} className="text-xs uppercase tracking-[0.3rem] text-black/50">
+            <label htmlFor={briefId} className="text-xs uppercase tracking-[0.3rem] text-black/70">
               Project brief
             </label>
             <textarea
@@ -152,7 +152,7 @@ function ContactModal({ designer, onClose }: ContactModalProps) {
             />
           </div>
           <div className="flex items-center justify-between">
-            <label className="flex items-center gap-2 text-xs text-black/60">
+            <label className="flex items-center gap-2 text-xs text-black/75">
               <input type="checkbox" className="h-4 w-4 rounded border-black/20" />
               Keep me on the directory launch list
             </label>
@@ -244,12 +244,12 @@ function FeaturedDesignerCard({ designer, index, onContact }: CardProps) {
         <div className="flex flex-1 flex-col gap-4 p-6 text-black">
           <div className="space-y-2">
             <h3 className="text-2xl font-semibold leading-tight">{designer.name}</h3>
-            <p className="text-sm text-black/60">
+            <p className="text-sm text-black/75">
               {designer.location} • {designer.services.join(", ")}
             </p>
           </div>
           <p className="text-sm text-black/70">{designer.bio}</p>
-          <p className="text-xs uppercase tracking-[0.3rem] text-black/50">
+          <p className="text-xs uppercase tracking-[0.3rem] text-black/70">
             Rating {designer.rating.toFixed(1)} / 5
           </p>
           <div className="mt-auto flex flex-wrap gap-3">
@@ -297,7 +297,7 @@ export default function FeaturedDesignersCarousel() {
       <div className="mx-auto max-w-7xl">
         <div className="mb-14 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="text-[11px] uppercase tracking-[0.45rem] text-black/45">Featured designers</p>
+            <p className="text-[11px] uppercase tracking-[0.45rem] text-black/80">Featured designers</p>
             <h2 id="featured-heading" className="mt-2 text-[34px] font-semibold tracking-[-0.01em] md:text-[40px]">
               Curated Melbourne studios in focus.
             </h2>

@@ -42,7 +42,7 @@ function StepCard({ title, description, index }: StepCardProps) {
 
   return (
     <li ref={ref} className="rounded-3xl border border-[rgba(17,17,17,0.06)] bg-white/90 p-6 text-black shadow-[0_12px_32px_rgba(15,18,24,0.06)]">
-      <p className="text-xs uppercase tracking-[0.3rem] text-black/40">Step {index + 1}</p>
+      <p className="text-xs uppercase tracking-[0.3rem] text-black/75">Step {index + 1}</p>
       <h3 className="mt-3 text-2xl font-semibold">{title}</h3>
       <p className="mt-3 text-sm text-black/70">{description}</p>
     </li>
@@ -71,7 +71,7 @@ export default function HowItWorks() {
     <section id="process" aria-labelledby="how-it-works-heading" className="bg-[#f6f6f7] px-6 py-24 text-black">
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 max-w-3xl">
-          <p className="text-xs uppercase tracking-[0.3rem] text-black/50">How it works</p>
+          <p className="text-xs uppercase tracking-[0.3rem] text-black/70">How it works</p>
           <h2 id="how-it-works-heading" className="mt-3 text-3xl font-semibold md:text-4xl">
             Simple pathways for clients and designers to meet.
           </h2>
@@ -86,7 +86,7 @@ export default function HowItWorks() {
           className="mt-12 flex flex-col gap-4 rounded-3xl border border-black/10 bg-black text-white p-8 md:flex-row md:items-center md:justify-between"
         >
           <div>
-            <p className="text-xs uppercase tracking-[0.3rem] text-white/60">Designer callout</p>
+            <p className="text-xs uppercase tracking-[0.3rem] text-white/80">Designer callout</p>
             <p className="mt-2 text-lg font-semibold">
               Are you a designer? Apply to be curated and claim your profile.
             </p>
@@ -99,15 +99,25 @@ export default function HowItWorks() {
             Claim your profile
           </a>
         </div>
-        <div className="mt-12 rounded-3xl border border-[rgba(17,17,17,0.06)] bg-white/95 p-8 text-sm text-black/70 shadow-[0_12px_32px_rgba(15,18,24,0.05)]">
-          <p className="text-xs uppercase tracking-[0.3rem] text-black/50">Profile system scaffolding</p>
-          <ul className="mt-4 space-y-2">
-            <li>Claim flow: `/claim?slug=:designer` verifies ownership before unlocking edits.</li>
-            <li>New signups auto-create a draft profile with supplied studio details.</li>
-            <li>Workflow states: <code>DRAFT → UNDER_REVIEW → PUBLISHED | REJECTED</code> with moderation guardrails.</li>
-            <li>API endpoints: `POST /api/profiles`, `PUT /api/profiles/:id`, `POST /api/profiles/:id/submit`, `POST /api/profiles/:id/share/og`.</li>
-            <li>Analytics hooks queued: `profile_created`, `profile_submit_review`, `profile_share_click`.</li>
-          </ul>
+        <div className="mt-12 grid gap-6 md:grid-cols-2">
+          <article className="rounded-3xl border border-[rgba(17,17,17,0.06)] bg-white/95 p-8 text-sm text-black/70 shadow-[0_12px_32px_rgba(15,18,24,0.05)]">
+            <p className="text-xs uppercase tracking-[0.3rem] text-black/70">For studio owners</p>
+            <h3 className="mt-3 text-lg font-semibold text-black">Claim & personalise</h3>
+            <ul className="mt-4 space-y-2">
+              <li>Claim your listing to unlock editing, services, and case-study highlights.</li>
+              <li>Drafts stay private until you submit for review; we keep moderation tight.</li>
+              <li>Share your live profile via branded OG cards and one-click social buttons.</li>
+            </ul>
+          </article>
+          <article className="rounded-3xl border border-[rgba(17,17,17,0.06)] bg-white/95 p-8 text-sm text-black/70 shadow-[0_12px_32px_rgba(15,18,24,0.05)]">
+            <p className="text-xs uppercase tracking-[0.3rem] text-black/70">For teams hiring</p>
+            <h3 className="mt-3 text-lg font-semibold text-black">Streamlined intros</h3>
+            <ul className="mt-4 space-y-2">
+              <li>Submit a brief and we match you with curated studios ready to collaborate.</li>
+              <li>Use favouriting and notes to shortlist, then share with stakeholders.</li>
+              <li>Every profile shows capabilities, collaborators, and accreditation at a glance.</li>
+            </ul>
+          </article>
         </div>
       </div>
     </section>

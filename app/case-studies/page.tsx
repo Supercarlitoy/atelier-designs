@@ -6,7 +6,7 @@ export default function CaseStudiesPage() {
   return (
     <main className="bg-[#0f1116] pb-24 pt-20 text-white">
       <section className="mx-auto max-w-6xl px-6 text-center md:text-left">
-        <p className="text-[12px] uppercase tracking-[0.5rem] text-white/40">Case studies</p>
+        <p className="text-[12px] uppercase tracking-[0.5rem] text-white/70">Case studies</p>
         <h1 className="mt-4 text-4xl font-semibold md:text-5xl">Deep dives into Melbourne projects that move the dial.</h1>
         <p className="mt-4 max-w-3xl text-base text-white/70 md:text-lg">
           Every project below is verified with client outcomes and testimonial quotes. Filter our work library by industry, impact, or studio and request intros straight from each detail page.
@@ -38,7 +38,7 @@ export default function CaseStudiesPage() {
             </div>
             <div className="mt-6 flex flex-col gap-4">
               <div>
-                <p className="text-xs uppercase tracking-[0.3rem] text-white/40">{study.designerName}</p>
+                <p className="text-xs uppercase tracking-[0.3rem] text-white/70">{study.designerName}</p>
                 <h2 className="mt-2 text-2xl font-semibold">{study.title}</h2>
               </div>
               <p className="text-sm text-white/70">{study.intro}</p>

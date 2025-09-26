@@ -28,7 +28,7 @@ export default function CareersPage() {
   return (
     <main className="bg-[#f8f8f8] pb-24 pt-20 text-black">
       <section className="mx-auto max-w-5xl px-6">
-        <p className="text-[12px] uppercase tracking-[0.5rem] text-black/40">Careers</p>
+        <p className="text-[12px] uppercase tracking-[0.5rem] text-black/75">Careers</p>
         <h1 className="mt-4 text-4xl font-semibold md:text-5xl">Join the team curating Melbourne’s design talent.</h1>
         <p className="mt-4 max-w-3xl text-base text-black/70 md:text-lg">
           We are a lean team of producers, strategists, and technologists. We work remotely-first with regular Melbourne meetups, and we consciously partner with underrepresented voices in design.
@@ -40,7 +40,7 @@ export default function CareersPage() {
           <article key={role.title} className="rounded-3xl border border-black/10 bg-white p-8 shadow-[0_18px_40px_rgba(15,18,24,0.08)]">
             <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
               <h2 className="text-2xl font-semibold">{role.title}</h2>
-              <p className="text-xs uppercase tracking-[0.3rem] text-black/50">
+              <p className="text-xs uppercase tracking-[0.3rem] text-black/70">
                 {role.type} · {role.location}
               </p>
             </div>

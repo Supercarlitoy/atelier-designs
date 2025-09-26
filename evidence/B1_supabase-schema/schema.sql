@@ -1,0 +1,9 @@
+-- Schema audit notes (reference only)
+-- Existing Supabase instance already provides `public.leads`
+-- with columns: id, name, email, company, message, source, status, createdAt, updatedAt.
+-- No additional tables were created. Form persistence reuses this table with
+-- source values `claim_form`, `signup_form`, and `contact_form` and stores
+-- structured summaries inside the `message` column.
+--
+-- If future migrations are needed, add them here; for now this file documents
+-- the audited schema to avoid duplicate provisioning.

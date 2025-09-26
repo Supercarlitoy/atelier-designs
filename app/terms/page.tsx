@@ -17,7 +17,7 @@ export default function TermsPage() {
   return (
     <main className="bg-white pb-24 pt-20 text-black">
       <article className="mx-auto max-w-4xl px-6">
-        <p className="text-[12px] uppercase tracking-[0.5rem] text-black/40">Terms</p>
+        <p className="text-[12px] uppercase tracking-[0.5rem] text-black/75">Terms</p>
         <h1 className="mt-4 text-4xl font-semibold md:text-5xl">Terms of service.</h1>
         <p className="mt-4 text-base text-black/70 md:text-lg">
           These terms apply to studios, independents, and clients engaging with the platform. Updated July 2025.
@@ -30,7 +30,7 @@ export default function TermsPage() {
             </div>
           ))}
         </section>
-        <p className="mt-10 text-sm text-black/60">
+        <p className="mt-10 text-sm text-black/75">
           Questions? Contact <a href="mailto:legal@atelierdesigns.com" className="underline">legal@atelierdesigns.com</a>.
         </p>
       </article>

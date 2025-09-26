@@ -28,8 +28,22 @@ export default function ClaimPage() {
           body: JSON.stringify(payload)
         });
 
-        if (!response.ok) {
-          throw new Error("Request failed");
+        const json = (await response.json().catch(() => null)) as
+          | { ok: boolean; message?: string; error?: string }
+          | null;
+
+        if (!response.ok || !json?.ok) {
+          const errorCode = json?.error;
+          const friendlyMessage =
+            errorCode === "duplicate_submission"
+              ? "You already submitted a claim recently. Check your inbox or try again later."
+              : errorCode === "configuration_error"
+                ? "Claim form temporarily unavailable while we finish setup."
+                : json?.message ?? "Something went wrong. Please try again later.";
+
+          setStatus("error");
+          setMessage(friendlyMessage);
+          return;
         }
 
         track("profile_claim_request", {
@@ -51,7 +65,7 @@ export default function ClaimPage() {
   return (
     <main className="bg-[#f4f4f4] pb-24 pt-16">
       <div className="mx-auto max-w-3xl rounded-3xl border border-[rgba(17,17,17,0.06)] bg-white/95 px-6 py-8 shadow-[0_24px_60px_rgba(15,18,24,0.12)] sm:p-10">
-        <p className="text-xs uppercase tracking-[0.4rem] text-black/40">Claim a profile</p>
+        <p className="text-xs uppercase tracking-[0.4rem] text-black/75">Claim a profile</p>
         <h1 className="mt-2 text-3xl font-semibold text-black md:text-4xl">
           Verify ownership of an existing studio profile.
         </h1>
@@ -62,7 +76,7 @@ export default function ClaimPage() {
         <form onSubmit={handleSubmit} className="mt-8 space-y-6">
           <div className="grid gap-6 md:grid-cols-2">
             <label className="space-y-2 text-sm text-black/70">
-              <span className="text-xs uppercase tracking-[0.3rem] text-black/40">Your name</span>
+              <span className="text-xs uppercase tracking-[0.3rem] text-black/75">Your name</span>
               <input
                 name="fullName"
                 type="text"
@@ -71,7 +85,7 @@ export default function ClaimPage() {
               />
             </label>
             <label className="space-y-2 text-sm text-black/70">
-              <span className="text-xs uppercase tracking-[0.3rem] text-black/40">Work email</span>
+              <span className="text-xs uppercase tracking-[0.3rem] text-black/75">Work email</span>
               <input
                 name="email"
                 type="email"
@@ -81,7 +95,7 @@ export default function ClaimPage() {
             </label>
           </div>
           <label className="space-y-2 text-sm text-black/70">
-            <span className="text-xs uppercase tracking-[0.3rem] text-black/40">Which profile are you claiming?</span>
+            <span className="text-xs uppercase tracking-[0.3rem] text-black/75">Which profile are you claiming?</span>
             <select
               name="profileSlug"
               required
@@ -99,7 +113,7 @@ export default function ClaimPage() {
             </select>
           </label>
           <label className="space-y-2 text-sm text-black/70">
-            <span className="text-xs uppercase tracking-[0.3rem] text-black/40">Proof of ownership</span>
+            <span className="text-xs uppercase tracking-[0.3rem] text-black/75">Proof of ownership</span>
             <textarea
               name="proof"
               rows={4}

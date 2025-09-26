@@ -17,7 +17,7 @@ export default function PrivacyPage() {
   return (
     <main className="bg-[#fafafa] pb-24 pt-20 text-black">
       <article className="mx-auto max-w-4xl px-6">
-        <p className="text-[12px] uppercase tracking-[0.5rem] text-black/40">Privacy policy</p>
+        <p className="text-[12px] uppercase tracking-[0.5rem] text-black/75">Privacy policy</p>
         <h1 className="mt-4 text-4xl font-semibold md:text-5xl">How we handle your data.</h1>
         <p className="mt-4 text-base text-black/70 md:text-lg">
           Effective July 2025. We respect Melbourne’s creative community and handle every dataset with care.
@@ -30,7 +30,7 @@ export default function PrivacyPage() {
             </div>
           ))}
         </section>
-        <p className="mt-10 text-sm text-black/60">
+        <p className="mt-10 text-sm text-black/75">
           For any privacy questions, email <a href="mailto:privacy@atelierdesigns.com" className="underline">privacy@atelierdesigns.com</a>.
         </p>
       </article>

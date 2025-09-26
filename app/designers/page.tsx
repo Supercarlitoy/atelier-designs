@@ -32,7 +32,7 @@ const directory = Array.from(
           services: entry.services,
           location: entry.location,
           href: "href" in entry ? entry.href : entry.website,
-          bio: "bio" in entry ? entry.bio : entry.tagline,
+          bio: "tagline" in entry ? entry.tagline : entry.bio,
           hasProfile: Boolean(profile)
         }
       ];
@@ -44,7 +44,7 @@ export default function DesignersPage() {
   return (
     <main className="bg-[#f5f5f6] pb-24 pt-20 text-black">
       <section className="mx-auto max-w-6xl px-6">
-        <p className="text-[12px] uppercase tracking-[0.5rem] text-black/50">Directory</p>
+        <p className="text-[12px] uppercase tracking-[0.5rem] text-black/70">Directory</p>
         <h1 className="mt-4 text-4xl font-semibold md:text-5xl">Curated Melbourne designers ready for your next project.</h1>
         <p className="mt-4 max-w-2xl text-base text-black/70 md:text-lg">
           Our team monitors every profile for craft, collaboration, and reliability. Explore the studios below, shortlist your favourites, then request a brief to get matched.
@@ -82,13 +82,13 @@ export default function DesignersPage() {
         <div className="mb-10 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div>
             <h2 className="text-2xl font-semibold md:text-3xl">Studios & independents</h2>
-            <p className="mt-2 text-sm text-black/60">
+            <p className="mt-2 text-sm text-black/75">
               {directory.length} profiles verified for craft and client experience. This view combines highlighted partners and the growing self-serve directory.
             </p>
           </div>
           <Link
             href="#search"
-            className="text-xs font-semibold uppercase tracking-[0.35rem] text-black/60 underline"
+            className="text-xs font-semibold uppercase tracking-[0.35rem] text-black/75 underline"
           >
             Search directory ↓
           </Link>
@@ -100,10 +100,10 @@ export default function DesignersPage() {
               className="flex flex-col justify-between rounded-3xl border border-[rgba(17,17,17,0.06)] bg-white p-6 shadow-[0_16px_36px_rgba(15,18,24,0.08)]"
             >
               <div>
-                <p className="text-xs uppercase tracking-[0.3rem] text-black/40">{entry.location}</p>
+                <p className="text-xs uppercase tracking-[0.3rem] text-black/75">{entry.location}</p>
                 <h3 className="mt-2 text-xl font-semibold">{entry.name}</h3>
                 <p className="mt-3 text-sm text-black/70">{entry.bio}</p>
-                <ul className="mt-4 flex flex-wrap gap-2 text-xs uppercase tracking-[0.25rem] text-black/50">
+                <ul className="mt-4 flex flex-wrap gap-2 text-xs uppercase tracking-[0.25rem] text-black/70">
                   {entry.services.slice(0, 6).map((service) => (
                     <li key={service} className="rounded-full border border-black/15 px-3 py-1">
                       {service}

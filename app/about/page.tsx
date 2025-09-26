@@ -2,7 +2,7 @@ export default function AboutPage() {
   return (
     <main className="bg-white pb-24 pt-20 text-black">
       <article className="mx-auto max-w-4xl px-6">
-        <p className="text-[12px] uppercase tracking-[0.5rem] text-black/40">About</p>
+        <p className="text-[12px] uppercase tracking-[0.5rem] text-black/75">About</p>
         <h1 className="mt-4 text-4xl font-semibold md:text-5xl">A Melbourne-first directory built with creative partners.</h1>
         <p className="mt-6 text-base text-black/70 md:text-lg">
           Atelier Designs curates studios and independents who keep Melbourne’s design scene at the forefront. We vet every profile, audit live work twice a year, and run anonymous reference checks so clients can engage with confidence.

@@ -32,7 +32,7 @@ export default function SearchPage({ searchParams }: { searchParams: { q?: strin
   return (
     <main className="bg-[#f4f4f5] pb-24 pt-20 text-black">
       <section className="mx-auto max-w-5xl px-6">
-        <p className="text-[12px] uppercase tracking-[0.5rem] text-black/45">Search</p>
+        <p className="text-[12px] uppercase tracking-[0.5rem] text-black/80">Search</p>
         <h1 className="mt-4 text-4xl font-semibold md:text-5xl">Find the right Melbourne partner.</h1>
         <p className="mt-4 max-w-2xl text-base text-black/70 md:text-lg">
           We search across the live directory, featured studios, and case studies. Use service keywords, suburbs, or studio names. Try “collingwood identity” or “digital booking platform”.
@@ -60,7 +60,7 @@ export default function SearchPage({ searchParams }: { searchParams: { q?: strin
       <section className="mx-auto mt-16 max-w-6xl px-6">
         <div className="flex flex-col gap-2 md:flex-row md:items-baseline md:justify-between">
           <h2 className="text-2xl font-semibold">Studios ({designerResults.length})</h2>
-          <p className="text-sm text-black/60">
+          <p className="text-sm text-black/75">
             Showing featured and self-managed profiles. Results are ranked by relevance to your query.
           </p>
         </div>
@@ -69,14 +69,14 @@ export default function SearchPage({ searchParams }: { searchParams: { q?: strin
             const profile = getProfileBySlug(designer.slug);
             return (
               <article key={designer.slug} className="rounded-3xl border border-black/10 bg-white p-6 shadow-[0_16px_36px_rgba(15,18,24,0.08)]">
-              <p className="text-xs uppercase tracking-[0.3rem] text-black/40">{designer.location}</p>
+              <p className="text-xs uppercase tracking-[0.3rem] text-black/75">{designer.location}</p>
               <h3 className="mt-2 text-xl font-semibold">{designer.name}</h3>
               {"bio" in designer ? (
                 <p className="mt-3 text-sm text-black/70">{designer.bio}</p>
               ) : (
                 <p className="mt-3 text-sm text-black/70">{designer.tagline}</p>
               )}
-              <div className="mt-4 flex flex-wrap gap-2 text-[11px] uppercase tracking-[0.25rem] text-black/50">
+              <div className="mt-4 flex flex-wrap gap-2 text-[11px] uppercase tracking-[0.25rem] text-black/70">
                 {designer.services.slice(0, 6).map((service) => (
                   <span key={service} className="rounded-full border border-black/15 px-3 py-1">
                     {service}
@@ -117,15 +117,15 @@ export default function SearchPage({ searchParams }: { searchParams: { q?: strin
       <section className="mx-auto mt-20 max-w-6xl px-6">
         <div className="flex flex-col gap-2 md:flex-row md:items-baseline md:justify-between">
           <h2 className="text-2xl font-semibold">Case studies ({caseStudyResults.length})</h2>
-          <p className="text-sm text-black/60">Validated projects with quantifiable outcomes and testimonials.</p>
+          <p className="text-sm text-black/75">Validated projects with quantifiable outcomes and testimonials.</p>
         </div>
         <div className="mt-6 grid gap-6 md:grid-cols-2">
           {caseStudyResults.map((study) => (
             <article key={study.slug} className="rounded-3xl border border-black/10 bg-white p-6 shadow-[0_16px_36px_rgba(15,18,24,0.08)]">
-              <p className="text-xs uppercase tracking-[0.3rem] text-black/40">{study.designerName}</p>
+              <p className="text-xs uppercase tracking-[0.3rem] text-black/75">{study.designerName}</p>
               <h3 className="mt-2 text-xl font-semibold">{study.title}</h3>
               <p className="mt-3 text-sm text-black/70">{study.excerpt}</p>
-              <div className="mt-4 flex flex-wrap gap-2 text-[11px] uppercase tracking-[0.25rem] text-black/50">
+              <div className="mt-4 flex flex-wrap gap-2 text-[11px] uppercase tracking-[0.25rem] text-black/70">
                 {study.tags.map((tag) => (
                   <span key={tag} className="rounded-full border border-black/15 px-3 py-1">
                     {tag}

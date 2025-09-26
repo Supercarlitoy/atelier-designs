@@ -1,0 +1,25 @@
+thresholds:
+  green: 0.80
+  yellow: 0.60
+  goal_confirmation: 0.90
+
+gates:
+  spec_quality:
+    required_sections: ["Goal Statement","Acceptance Criteria","Edge Cases"]
+    ambiguous_terms: ["improve","fix","optimize","this","that","it"]
+  template_sync:
+    templates_version: "1.0"
+  change_sync:
+    block_on_stale: true
+
+ci:
+  coverage_min_percent: 85
+  accessibility_runner: "axe"
+  perf_budgets:
+    api_p95_ms: 400
+    lcp_ms: 2000
+    inp_ms: 200
+rules:
+  allow_existing_supabase_schema: true
+rules:
+  allow_existing_supabase_schema: true

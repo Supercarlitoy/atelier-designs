@@ -32,7 +32,7 @@ export default function PressPage() {
   return (
     <main className="bg-white pb-24 pt-20 text-black">
       <section className="mx-auto max-w-4xl px-6">
-        <p className="text-[12px] uppercase tracking-[0.5rem] text-black/40">Press</p>
+        <p className="text-[12px] uppercase tracking-[0.5rem] text-black/75">Press</p>
         <h1 className="mt-4 text-4xl font-semibold md:text-5xl">Resources for journalists and collaborators.</h1>
         <p className="mt-4 text-base text-black/70 md:text-lg">
           We’re happy to share data about the Melbourne design ecosystem, connect you with studio founders, or provide comment on industry trends. Explore the resources below or reach us directly at <a href="mailto:press@atelierdesigns.com" className="underline">press@atelierdesigns.com</a>.
@@ -59,7 +59,7 @@ export default function PressPage() {
         <ul className="mt-6 space-y-4 text-sm text-black/70">
           {RECENT_FEATURES.map((feature) => (
             <li key={feature.headline} className="rounded-3xl border border-black/10 bg-[#f8f8f8] p-6 shadow-[0_10px_24px_rgba(15,18,24,0.08)]">
-              <p className="text-xs uppercase tracking-[0.3rem] text-black/50">{feature.outlet} · {feature.date}</p>
+              <p className="text-xs uppercase tracking-[0.3rem] text-black/70">{feature.outlet} · {feature.date}</p>
               <a href={feature.href} className="mt-2 block text-lg font-semibold text-black underline-offset-8 hover:underline">
                 {feature.headline}
               </a>

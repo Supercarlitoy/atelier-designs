@@ -54,7 +54,7 @@ export default function Footer() {
       <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-[1fr_3fr]">
         <div className="space-y-6">
           <img src="/logo.svg" alt="Melbourne Designers" className="h-8" />
-          <p className="text-sm text-white/60">
+          <p className="text-sm text-white/80">
             © {year} Melbourne Designers Directory · ABN 00 000 000 000
           </p>
           <ul className="flex gap-4 text-sm">
@@ -77,7 +77,7 @@ export default function Footer() {
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {LINK_GROUPS.map((group) => (
             <nav key={group.title} aria-label={group.title} className="space-y-3">
-              <h3 className="text-sm font-semibold uppercase tracking-[0.3rem] text-white/60">{group.title}</h3>
+              <h3 className="text-sm font-semibold uppercase tracking-[0.3rem] text-white/80">{group.title}</h3>
               <ul className="space-y-2 text-sm">
                 {group.links.map((link) => (
                   <li key={link.href}>
@@ -95,7 +95,7 @@ export default function Footer() {
           ))}
         </div>
       </div>
-      <div className="mx-auto mt-10 max-w-7xl border-t border-white/10 pt-6 text-xs text-white/40">
+      <div className="mx-auto mt-10 max-w-7xl border-t border-white/10 pt-6 text-xs text-white/70">
         Built for launch on Vercel · All analytics and motion respect privacy & reduced motion settings.
       </div>
     </footer>

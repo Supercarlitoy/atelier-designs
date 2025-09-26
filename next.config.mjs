@@ -1,5 +1,8 @@
 const config = {
   reactStrictMode: true,
+  experimental: {
+    viewTransition: true
+  },
   images: {
     remotePatterns: [
       {

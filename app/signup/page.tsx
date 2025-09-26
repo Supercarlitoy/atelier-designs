@@ -33,8 +33,22 @@ export default function SignupPage() {
           body: JSON.stringify(payload)
         });
 
-        if (!response.ok) {
-          throw new Error("Request failed");
+        const json = (await response.json().catch(() => null)) as
+          | { ok: boolean; message?: string; error?: string; studioSlug?: string }
+          | null;
+
+        if (!response.ok || !json?.ok) {
+          const errorCode = json?.error;
+          const friendlyMessage =
+            errorCode === "duplicate_submission"
+              ? "Looks like we already have a signup in review for this studio. We'll be in touch soon."
+              : errorCode === "configuration_error"
+                ? "Signup temporarily unavailable while we finish setup."
+                : json?.message ?? "Could not create profile right now. Please try again later.";
+
+          setStatus("error");
+          setMessage(friendlyMessage);
+          return;
         }
 
         track("signup_complete", {
@@ -56,7 +70,7 @@ export default function SignupPage() {
   return (
     <main className="bg-[#f4f4f4] pb-24 pt-16">
       <div className="mx-auto max-w-3xl rounded-3xl border border-[rgba(17,17,17,0.06)] bg-white/95 px-6 py-8 shadow-[0_24px_60px_rgba(15,18,24,0.12)] sm:p-10">
-        <p className="text-xs uppercase tracking-[0.4rem] text-black/40">Designer signup</p>
+        <p className="text-xs uppercase tracking-[0.4rem] text-black/75">Designer signup</p>
         <h1 className="mt-2 text-3xl font-semibold text-black md:text-4xl">
           List your Melbourne studio in the directory.
         </h1>
@@ -67,7 +81,7 @@ export default function SignupPage() {
         <form onSubmit={handleSubmit} className="mt-8 space-y-6">
           <div className="grid gap-6 md:grid-cols-2">
             <label className="space-y-2 text-sm text-black/70">
-              <span className="text-xs uppercase tracking-[0.3rem] text-black/40">Your name</span>
+              <span className="text-xs uppercase tracking-[0.3rem] text-black/75">Your name</span>
               <input
                 name="fullName"
                 type="text"
@@ -76,7 +90,7 @@ export default function SignupPage() {
               />
             </label>
             <label className="space-y-2 text-sm text-black/70">
-              <span className="text-xs uppercase tracking-[0.3rem] text-black/40">Work email</span>
+              <span className="text-xs uppercase tracking-[0.3rem] text-black/75">Work email</span>
               <input
                 name="email"
                 type="email"
@@ -87,7 +101,7 @@ export default function SignupPage() {
           </div>
           <div className="grid gap-6 md:grid-cols-2">
             <label className="space-y-2 text-sm text-black/70">
-              <span className="text-xs uppercase tracking-[0.3rem] text-black/40">Studio name</span>
+              <span className="text-xs uppercase tracking-[0.3rem] text-black/75">Studio name</span>
               <input
                 name="studioName"
                 type="text"
@@ -96,7 +110,7 @@ export default function SignupPage() {
               />
             </label>
             <label className="space-y-2 text-sm text-black/70">
-              <span className="text-xs uppercase tracking-[0.3rem] text-black/40">Location / suburb</span>
+              <span className="text-xs uppercase tracking-[0.3rem] text-black/75">Location / suburb</span>
               <input
                 name="location"
                 type="text"
@@ -106,7 +120,7 @@ export default function SignupPage() {
             </label>
           </div>
           <label className="space-y-2 text-sm text-black/70">
-            <span className="text-xs uppercase tracking-[0.3rem] text-black/40">Website</span>
+            <span className="text-xs uppercase tracking-[0.3rem] text-black/75">Website</span>
             <input
               name="website"
               type="url"
@@ -116,7 +130,7 @@ export default function SignupPage() {
             />
           </label>
           <div>
-            <p className="text-xs uppercase tracking-[0.3rem] text-black/40">Services you offer</p>
+            <p className="text-xs uppercase tracking-[0.3rem] text-black/75">Services you offer</p>
             <div className="mt-3 grid gap-2 md:grid-cols-2">
               {services.map((service) => (
                 <label key={service} className="flex items-center gap-2 rounded-xl border border-black/15 px-3 py-2 text-sm text-black/70">
@@ -127,7 +141,7 @@ export default function SignupPage() {
             </div>
           </div>
           <label className="space-y-2 text-sm text-black/70">
-            <span className="text-xs uppercase tracking-[0.3rem] text-black/40">Tell us about your studio</span>
+            <span className="text-xs uppercase tracking-[0.3rem] text-black/75">Tell us about your studio</span>
             <textarea
               name="bio"
               rows={5}

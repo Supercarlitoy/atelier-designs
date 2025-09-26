@@ -7,6 +7,7 @@ import designers from "@/data/featured-designers.seed.json";
 import { track } from "@/lib/analytics";
 
 import MobileMenuOverlay from "./MobileMenuOverlay";
+import { TransitionLink } from "@/components/transitions/TransitionLink";
 
 type NavLink = {
   href: string;
@@ -20,23 +21,24 @@ const PAGE_LINKS: NavLink[] = [
   { href: "/collections", label: "Collections" },
   { href: "/case-studies", label: "Case Studies" },
   { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" }
+  { href: "/contact", label: "Contact" },
+  { href: "/faq", label: "FAQ" }
 ];
 
 const SECTION_LINKS: NavLink[] = [
   { href: "#featured", label: "Featured" },
   { href: "#process", label: "Process" },
-  { href: "#testimonials", label: "Testimonials" }
+  { href: "#testimonials", label: "Testimonials" },
+  { href: "#lead", label: "Request a brief" }
 ];
 
 const MENU_LINKS: NavLink[] = [...PAGE_LINKS, ...SECTION_LINKS];
-
-const CTA_LINK: NavLink = { href: "#lead", label: "Request a brief" };
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const firstRunRef = useRef(true);
   const topDesigners = useMemo<Designer[]>(() => designers.slice(0, 5), []);
+  const mainRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     if (firstRunRef.current) {
@@ -45,65 +47,60 @@ export default function Header() {
     }
 
     if (menuOpen) {
-      track("nav_menu_open", { source: "mobile" });
+      track("nav_menu_open", { source: "header-toggle" });
     } else {
-      track("nav_menu_close", { source: "mobile" });
+      track("nav_menu_close", { source: "header-toggle" });
+    }
+  }, [menuOpen]);
+
+  useEffect(() => {
+    if (!mainRef.current) {
+      mainRef.current = document.querySelector("main");
+    }
+    const mainEl = mainRef.current;
+    if (!mainEl) {
+      return;
+    }
+    if (menuOpen) {
+      mainEl.setAttribute("aria-hidden", "true");
+      mainEl.setAttribute("inert", "");
+    } else {
+      mainEl.removeAttribute("aria-hidden");
+      mainEl.removeAttribute("inert");
     }
   }, [menuOpen]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-black/10 bg-white/90 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-black/10 bg-white/85 backdrop-blur">
       <div className="mx-auto flex h-[64px] max-w-7xl items-center justify-between px-4 md:h-[72px] md:px-6">
-        <Link
+        <TransitionLink
           href="/"
           className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.35rem] text-black"
         >
-          <img src="/logo.svg" alt="Atelier Digital Melbourne" className="h-7 md:h-8" />
+          <img
+            src="/logo.svg"
+            alt="Atelier Digital Melbourne"
+            className="h-7 md:h-8"
+            style={{ viewTransitionName: "brand-logo" }}
+          />
           <span className="hidden md:inline">Atelier Digital</span>
-        </Link>
-
-        <nav className="hidden items-center gap-6 text-[11px] uppercase tracking-[0.35rem] text-black/75 md:flex">
-          {PAGE_LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="transition-colors hover:text-black focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus)] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
-            >
-              {link.label}
-            </Link>
-          ))}
-          <span className="h-4 w-px bg-black/10" aria-hidden />
-          {SECTION_LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="transition-colors hover:text-black focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus)] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
-            >
-              {link.label}
-            </a>
-          ))}
-        </nav>
-
-        <div className="hidden items-center gap-4 md:flex">
-          <Link
-            href={CTA_LINK.href}
-            className="rounded-full border border-black/15 px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.3rem] text-black transition hover:border-black focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus)] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
-          >
-            {CTA_LINK.label}
-          </Link>
-        </div>
+        </TransitionLink>
 
         <button
           type="button"
-          aria-label="Open navigation menu"
+          aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
           aria-haspopup="dialog"
           aria-expanded={menuOpen}
           aria-controls="mobile-nav"
-          className="inline-flex items-center gap-2 rounded-full border border-black/15 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.3rem] text-black/70 transition-colors hover:text-black focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus)] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
-          onClick={() => setMenuOpen(true)}
+          className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-black transition-colors hover:border-black focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus)] focus-visible:ring-offset-2 focus-visible:ring-offset-white ${menuOpen ? "border-black bg-black text-white" : "border-black/20"}`}
+          onClick={() => setMenuOpen((open) => !open)}
         >
-          Menu
-          <span aria-hidden>•</span>
+          <span className="sr-only">{menuOpen ? "Close navigation" : "Open navigation"}</span>
+          <span aria-hidden className="relative flex h-4 w-6 flex-col justify-between">
+            <span className="h-[2px] w-full rounded bg-current" />
+            <span className="h-[2px] w-full rounded bg-current" />
+            <span className="h-[2px] w-full rounded bg-current" />
+          </span>
         </button>
       </div>
       <MobileMenuOverlay
@@ -111,7 +108,6 @@ export default function Header() {
         open={menuOpen}
         onClose={() => setMenuOpen(false)}
         navLinks={MENU_LINKS}
-        ctaLink={CTA_LINK}
         designers={topDesigners}
       />
     </header>

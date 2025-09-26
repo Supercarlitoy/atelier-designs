@@ -15,10 +15,10 @@ export function ProfilePortfolio({ profile }: ProfilePortfolioProps) {
     <section className="rounded-3xl border border-[rgba(17,17,17,0.06)] bg-white/95 p-8 text-black shadow-[0_18px_48px_rgba(15,18,24,0.08)] md:p-12">
       <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
         <div>
-          <p className="text-xs uppercase tracking-[0.3rem] text-black/40">Featured work</p>
+          <p className="text-xs uppercase tracking-[0.3rem] text-black/75">Featured work</p>
           <h2 className="mt-2 text-3xl font-semibold md:text-4xl">Selected case studies</h2>
         </div>
-        <p className="max-w-md text-sm text-black/60">
+        <p className="max-w-md text-sm text-black/75">
           Highlights from recent launches curated for the Melbourne Designers directory.
         </p>
       </div>

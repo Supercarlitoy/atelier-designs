@@ -1,5 +1,5 @@
 {
-  "name": "melbourne-designers",
+  "name": "atelier-digital",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,13 +7,23 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint --fix",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "test:e2e:routes": "PLAYWRIGHT_SUPABASE_MOCK=1 playwright test tests/routes.spec.ts",
+    "test:e2e:forms": "PLAYWRIGHT_SUPABASE_MOCK=1 playwright test tests/forms.spec.ts",
+    "test:e2e:onboarding": "PLAYWRIGHT_SUPABASE_MOCK=1 playwright test tests/onboarding.spec.ts",
+    "test:e2e:a11y": "PLAYWRIGHT_SUPABASE_MOCK=1 playwright test tests/a11y.spec.ts",
+    "test:e2e:perf": "PLAYWRIGHT_SUPABASE_MOCK=1 playwright test tests/perf.spec.ts",
+    "test:e2e:visual": "PLAYWRIGHT_SUPABASE_MOCK=1 playwright test tests/visual.spec.ts"
   },
   "dependencies": {
+    "@prisma/client": "^6.16.2",
+    "@supabase/ssr": "^0.7.0",
+    "@supabase/supabase-js": "^2.58.0",
     "autoprefixer": "10.4.19",
     "framer-motion": "11.2.10",
     "next": "^14.2.33",
     "postcss": "8.4.41",
+    "prisma": "^6.16.2",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "tailwindcss": "3.4.10",
@@ -28,6 +38,8 @@
     "@types/node": "^20.0.0",
     "@types/react": "18.3.4",
     "@types/react-dom": "18.3.2",
+    "axe-core": "^4.10.3",
+    "dotenv-cli": "^10.0.0",
     "eslint": "8.57.0",
     "eslint-config-next": "^14.2.5",
     "typescript": "5.4.5"
